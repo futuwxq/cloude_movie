@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/movie/index",
+    "pages/search/index",
+    "pages/profile/index"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "电影小站",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#c6c6c6",
+    "selectedColor": "#333",
+    "list": [
+      {
+        "pagePath": "pages/movie/index", 
+        "text": "推荐", 
+        "iconPath": "images/movie.png",
+        "selectedIconPath": "images/movie_o.png"
+      },
+      {
+        "pagePath": "pages/search/index", 
+        "text": "搜索", 
+        "iconPath": "images/category.png",
+        "selectedIconPath": "images/category_o.png"
+      },
+      {
+        "pagePath": "pages/profile/index", 
+        "text": "我的", 
+        "iconPath": "images/profile.png",
+        "selectedIconPath": "images/profile_o.png"
+      }
+  
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}
