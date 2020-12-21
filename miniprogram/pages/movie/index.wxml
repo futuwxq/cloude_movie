@@ -1,2 +1,9 @@
-<!--index.wxml-->
-
+<!-- index.wxml -->
+<view class="container">
+  <view class="header">
+  <!-- like -->
+        <v-like like="{{moviedetail.like}}" count="{{moviedetail.count}}" />
+  </view>
+  <!-- movie picture -->
+  <image src="{{moviedetail.cover}}" alt="" />
+</view>
