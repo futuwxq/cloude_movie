@@ -12,10 +12,9 @@
 }
 
 .container text {
-    font-size: 30rpx;
-    line-height: 30rpx;
-    color: #555;
+    font-size: 20rpx;
+    line-height: 20rpx;
+    color:var(--themeColor);
     position: relative;
     bottom: 10rpx;
-    left: 4rpx;
 }

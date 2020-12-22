@@ -2,4 +2,6 @@
 .container{
   padding: 0 !important;
   border:none !important;
+  width: 40rpx !important;
+  height: 40rpx;
 }

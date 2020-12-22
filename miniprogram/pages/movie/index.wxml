@@ -2,12 +2,13 @@
 <view class="container">
   <view class="header">
     <!-- 日期 -->
-
+    <v-episode class="episode" />
     <!-- like -->
     <view class="like_container">
-      <v-like like="{{moviedetail.like}}" count="{{moviedetail.count}}" />
+      <v-like  class="like" like="{{moviedetail.like}}" count="{{moviedetail.count}}" />
       <!-- 分享按钮 -->
       <v-share-button open-type="share" class="share-btn">
+        <view>2</view>
         <image slot="img" class="share" src="/images/share.png" />
       </v-share-button>
     </view>

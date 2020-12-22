@@ -1,0 +1,36 @@
+/* components/episode/index.wxss */
+.container {
+  display: flex;
+  align-items: center;
+  font-size:32rpx;
+}
+.index-container {
+  display: flex;
+  align-items: center;
+}
+.no {
+position: relative;
+top: 5rpx;
+}
+.index {
+  font-size: 50rpx;
+  font-weight: 800;
+
+}
+.line {
+  height: 44rpx;
+  width: 1px;
+  background: #000;
+  margin:0 14rpx;
+}
+.data-container {
+  display: flex;
+  flex-direction: column;
+}
+.month {
+  font-size: 24rpx;
+  line-height: 24rpx;
+}
+.year {
+  font-size: 20rpx;
+}

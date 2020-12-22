@@ -31,5 +31,5 @@ page {
   /* 定义统一字体大小 假设设计稿是 375px
    1 px = 2 rpx */
   /* 14px */
-  font-size: 28rpx;
+  /* font-size: 28rpx; */
 }
