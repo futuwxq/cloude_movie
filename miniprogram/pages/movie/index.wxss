@@ -12,6 +12,20 @@ page {
     height: 100rpx;
     display: flex;
     align-items: center;
-    border-top: 1px solid #f5f5f5;
-    border-bottom: 1px solid #f5f5f5;
+    border-top: 1px solid #e6e5e5;
+    border-bottom: 1px solid #e6e5e5;
+}
+
+.like_container {
+    display: flex;
+    align-items: center;
+}
+.share-btn {
+    margin-top: 34rpx;
+    margin-left: 10rpx;
+}
+
+.share {
+    width: 40rpx;
+    height: 40rpx;
 }
