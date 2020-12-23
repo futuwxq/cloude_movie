@@ -5,14 +5,33 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    isSearch:false,
+    movies:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // 获取电影列表的数据
+    wx.cloud.callFunction({
+      name: 'getMovieList'
+  }).then((res) => {
+      console.log(res.result.data)
+      this.setData({
+        movies: res.result.data
+      })
+  })
 
+  },
+
+  /**
+   * 改变搜索状态
+   */
+  onSearching() {
+    // this.setData({
+    //   isSearch:true
+    // })
   },
 
   /**

@@ -1,0 +1,14 @@
+<!--components/movie/index.wxml-->
+<view class="container">
+  <image mode="widthFix" src="{{imgurl}}" class="move-cover"/>
+  <view class="word-detail">
+    <view class="upline"></view>
+    <text class="cotent">{{words}}</text>
+    <view class="downline"></view>
+
+    <view class="movie-name">
+      <text> —— 阳光普照</text>
+    </view>
+
+  </view>
+</view>

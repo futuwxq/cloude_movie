@@ -1,2 +1,23 @@
 <!--pages/search/index.wxml-->
-<text>pages/search/index.wxml</text>
+<view class="container" wx:if="{{!isSearch}}">
+  <view class="header">
+    <view class="search-box" bindtap="onSearching">
+      <image class="search-icon" src="/images/search.png" />
+      <text>搜索电影</text>
+    </view>
+  </view>
+  <view class="content-container">
+    <view class="tab">
+      <text>精选</text>
+    </view>
+    <view class="movie-list">
+      <block  wx:for="{{movies}}">  
+      <v-movie-item movieitem="{{item}}" wx:key="item.id" class="movie-list-item" />   
+    </block>
+    </view>
+
+  </view>
+</view>
+<view class="container">
+  <!-- 搜索结果 -->
+</view>

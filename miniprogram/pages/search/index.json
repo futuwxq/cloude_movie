@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "v-search-movie": "/components/search-movie/index",
+    "v-movie-item":"/components/movie-item/index"
+  }
 }

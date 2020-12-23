@@ -1,0 +1,8 @@
+<!--components/movie-item/index.wxml-->
+<view class="movie-container">
+  <image src="{{movieitem.cover}}" />
+  <view class="desc">
+    <text>{{movieitem.title}}</text>
+    <text class="rate">{{movieitem.rate}}</text>
+  </view>
+</view>

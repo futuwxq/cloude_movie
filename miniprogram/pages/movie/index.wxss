@@ -49,3 +49,7 @@ page {
     width: 35rpx;
     height: 35rpx;
 }
+
+.move-cover {
+    width: 100%;
+}

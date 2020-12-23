@@ -1,0 +1,23 @@
+/* components/movie-item/index.wxss */
+view.movie-container {
+  box-shadow: 2px 2px 3px #e3e3e3;
+  flex-direction: column;
+  width: 220rpx;
+  height: 380rpx;
+  margin-bottom: 40rpx;
+  font-size: 25rpx;
+  background: #fff;
+}
+.movie-container image {
+  width: 100%;
+  height: 300rpx;
+  border-radius: 2px;
+}
+.movie-container .desc {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10rpx 15rpx;
+}
+.movie-container .desc .rate {
+  color: #e09015;
+}
