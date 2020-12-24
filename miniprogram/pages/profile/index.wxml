@@ -1,2 +1,23 @@
 <!--pages/profile/index.wxml-->
-<text>pages/profile/index.wxml</text>
+<view class="container">
+  <image src="/images/my-back.jpg" class="bg" />
+    <v-login-button wx:if="{{!authorized}}" open-type="getUserInfo" class="avatar-position" bind:getuserinfo="onGetUserInfo">
+        <image slot="img" class="avatar" src="/images/my.png" />
+    </v-login-button>
+    <view class="about-container">
+      <view class="about item">
+        <image src="/images/about.png"/>
+        <text>关于程序</text>
+      </view>
+      <view class="share item">
+        <image src="/images/share_.png"/>
+        <text>分享好物</text>
+      </view>
+    </view>
+    <view class="collect-container">
+      <view class="title">喜欢的电影</view>
+      <view class="list-container">
+        
+      </view>
+    </view>
+</view>

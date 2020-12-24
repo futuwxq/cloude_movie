@@ -1,0 +1,4 @@
+<!--components/tag/index.wxml-->
+<view class="tag-container">
+  <text>{{tags}}</text>
+</view>

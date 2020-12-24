@@ -1,0 +1,6 @@
+/* components/tag/index.wxss */
+.tag-container {
+ color:var(--themeColor);
+  padding: 10rpx;
+  background: #f5f5f5;
+}

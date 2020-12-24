@@ -1,1 +1,49 @@
 /* pages/profile/index.wxss */
+.container .bg {
+  width: 100%;
+  height: 300rpx;
+}
+
+.avatar-position {
+  position: absolute;
+  top: 255rpx;
+  left: 200rpx;
+}
+
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.about-container {
+  margin-top: 100rpx;
+  display: flex;
+  align-items: center;
+  padding-bottom: 20rpx;
+border-bottom: 1px solid #e6e2e2;
+
+}
+.about-container .item {
+  display: flex;
+  flex: 1;
+flex-direction: column;
+align-items: center;
+font-size: 23rpx;
+color: var(--themeColor);
+}
+.about-container .item  image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-bottom: 10rpx;
+}
+.collect-container {
+  width: 100%;
+}
+.collect-container .title{
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+  background: var(--backColor);
+}

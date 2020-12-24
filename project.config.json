@@ -63,6 +63,12 @@
         {
           "name": "搜索",
           "pathName": "pages/search/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "wide",
+          "pathName": "pages/profile/index",
           "scene": null
         }
       ]

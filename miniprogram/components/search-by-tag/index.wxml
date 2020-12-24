@@ -1,0 +1,31 @@
+<!--components/search-by-tag/index.wxml-->
+<view class="container">
+  <!-- 搜索导航 -->
+  <view class="header">
+    <view class="search-container">
+      <image src="/images/search.png"/>
+    <input type="text" placeholder="电影名" />
+    <image src="/images/off.png" class="off-img"/>
+    </view>
+
+    <view class="cancle">取消</view>
+  </view>
+  <view class="search-option">
+    <view class="search-history">
+      <view class="bar"></view>
+      <view class="text">历史搜索</view>
+      <view class="search-list">
+        <v-tag tags="东野圭吾" class="tag" />
+        <v-tag tags="东野圭吾" class="tag" />
+        <v-tag tags="东野圭吾" class="tag" />
+      </view>
+    </view>
+    <view class="search-hot">
+      <view class="bar"></view>
+      <div class="text">热门搜索</div>
+      <view class="search-list">
+        <v-tag tags="python" class="tag" />
+      </view>
+    </view>
+  </view>
+</view>

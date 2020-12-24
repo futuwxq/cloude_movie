@@ -1,5 +1,5 @@
 <!--pages/search/index.wxml-->
-<view class="container" wx:if="{{!isSearch}}">
+<view class="container" wx:if="{{!searching}}">
   <view class="header">
     <view class="search-box" bindtap="onSearching">
       <image class="search-icon" src="/images/search.png" />
@@ -18,6 +18,7 @@
 
   </view>
 </view>
-<view class="container">
+<view class="container" wx:if="{{searching}}" >
   <!-- 搜索结果 -->
+  <search-by-tag />
 </view>

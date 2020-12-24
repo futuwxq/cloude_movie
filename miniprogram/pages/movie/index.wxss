@@ -40,14 +40,17 @@ page {
     justify-content:flex-end;
     margin-right:30rpx;
 }
-.share-btn {
-    margin-top: 14rpx;
-    /* margin-left: 10rpx; */
+.share-btn button {
+    width: 60rpx !important;
+    height: 60rpx;
 }
-
+.share-btn {
+    width: 60rpx !important;
+    height: 60rpx;
+}
 .share {
-    width: 35rpx;
-    height: 35rpx;
+    width: 40rpx;
+    height: 40rpx;
 }
 
 .move-cover {

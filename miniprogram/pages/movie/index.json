@@ -1,7 +1,7 @@
 {
     "usingComponents": {
         "v-like": "/components/like/index",
-        "v-share-button":"/components/share-button/index",
+        "v-share-button":"/components/button/index",
         "v-episode":"/components/episode/index",
         "v-movie":"/components/movie-poster/index"
     }

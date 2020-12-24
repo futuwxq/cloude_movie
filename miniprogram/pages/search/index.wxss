@@ -1,7 +1,7 @@
 /* pages/search/index.wxss */
-page {
+/* page {
   background-color: var(--backColor);
-}
+} */
 .container .header {
   position: fixed;
   width: 100%;
@@ -9,6 +9,7 @@ page {
   background:#fff; 
   color: var(--themeColor);
   border-top: 1px solid #f5f5f5;
+  border-bottom: 1px solid #f5f5f5;
 }
 
 .search-box {
