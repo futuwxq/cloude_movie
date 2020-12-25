@@ -1,0 +1,25 @@
+<view class="container">
+  <view class="img-container">
+    <image src="{{imgs.url}}"  />
+    <view class="name">{{imgs.title}}</view>
+  </view>
+  <view class="infor-container">
+    <view class="title">基本信息</view>
+    <view class="infor" wx:for="{{details}}" wx:for-index="key" wx:for-item="value" wx:key="*this">
+      <view class="infor-item key">{{key}}</view>
+      <view class="infor-item value">{{value}}</view>
+    </view>
+  </view>
+  <view class="intro-container">
+    <view class="title">影片简介</view>
+    <block wx:for="{{imgs.intro}}" wx:key="*this">
+      <view class="para">{{item}}</view>
+    </block>
+  </view>
+  <view class="bottom-bar">
+    <v-like  class="like" like="{{imgs.like.like_statu}}" count="{{imgs.like.like_count}}" />
+    <v-share-button open-type="share" class="share-btn">
+        <image slot="img" class="share" src="/images/share.png" />
+    </v-share-button>
+  </view>
+</view>

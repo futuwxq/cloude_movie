@@ -17,6 +17,12 @@ Component({
   },
 
   /**
+   * 点击电影，进入详情页
+   */
+  // onMovieDetail(event){
+
+  // },
+  /**
    * 组件的方法列表
    */
   methods: {

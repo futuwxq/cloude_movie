@@ -11,14 +11,16 @@
       <text>精选</text>
     </view>
     <view class="movie-list">
-      <block  wx:for="{{movies}}">  
-      <v-movie-item movieitem="{{item}}" wx:key="item.id" class="movie-list-item" />   
-    </block>
+      <block wx:for="{{movies}}">
+        <navigator url="/pages/movie-detail/index?id={{item.id}}" >
+          <v-movie-item movieitem="{{item}}" wx:key="item.id" class="movie-list-item" />
+        </navigator>
+      </block>
     </view>
 
   </view>
 </view>
-<view class="container" wx:if="{{searching}}" >
+<view class="container" wx:if="{{searching}}">
   <!-- 搜索结果 -->
   <search-by-tag />
 </view>

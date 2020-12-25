@@ -2,7 +2,8 @@
   "pages": [
     "pages/movie/index",
     "pages/search/index",
-    "pages/profile/index"
+    "pages/profile/index",
+    "pages/movie-detail/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -16,24 +17,23 @@
     "selectedColor": "#333",
     "list": [
       {
-        "pagePath": "pages/movie/index", 
-        "text": "推荐", 
+        "pagePath": "pages/movie/index",
+        "text": "推荐",
         "iconPath": "images/movie.png",
         "selectedIconPath": "images/movie_o.png"
       },
       {
-        "pagePath": "pages/search/index", 
-        "text": "搜索", 
+        "pagePath": "pages/search/index",
+        "text": "搜索",
         "iconPath": "images/category.png",
         "selectedIconPath": "images/category_o.png"
       },
       {
-        "pagePath": "pages/profile/index", 
-        "text": "我的", 
+        "pagePath": "pages/profile/index",
+        "text": "我的",
         "iconPath": "images/profile.png",
         "selectedIconPath": "images/profile_o.png"
       }
-  
     ]
   },
   "sitemapLocation": "sitemap.json",

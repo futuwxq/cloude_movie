@@ -1,0 +1,78 @@
+/* miniprogram/pages/movie-detail/index.wxss */
+.container {
+  background: var(--backColor);
+}
+.img-container {
+  padding: 40rpx;
+display: flex;
+align-items: center;
+flex-direction: column;
+background: #fff;
+}
+.img-container image {
+  width: 270rpx;
+  height: 400rpx;
+}
+.img-container .name {
+  margin-top: 20rpx;
+  font-size: 30rpx;
+  letter-spacing:8rpx
+}
+.infor-container ,.intro-container {
+  margin-top: 25rpx;
+  padding: 30rpx;
+  background: #fff;
+  color: #444;
+}
+.infor-container .title,
+.intro-container .title {
+  text-align: center;
+  font-size: 34rpx;
+  font-weight: 600;
+}
+.intro-container  {
+  margin-bottom: 81rpx;
+}
+.infor-container .infor {
+  display: flex;
+  margin: 10rpx;
+}
+
+.infor-container .infor .key {
+  width: 100rpx;
+  color: #575050;
+}
+.infor-container .value {
+  flex: 1;
+}
+.intro-container .para {
+  padding: 10rpx 0;
+  text-indent:30px;
+}
+
+.bottom-bar {
+  height: 80rpx;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #e6e2e2
+}
+.bottom-bar .like{
+width: 50%;
+display: flex;
+justify-content: center;
+}
+.bottom-bar .share-btn button {
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  top: 15rpx;
+  right: 160rpx;
+}
+.bottom-bar .share-btn image{
+  width: 40rpx;
+  height: 40rpx;
+}

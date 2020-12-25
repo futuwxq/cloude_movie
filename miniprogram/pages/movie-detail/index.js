@@ -1,37 +1,44 @@
-// pages/search/index.js
+// miniprogram/pages/movie-detail/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    isSearch:false,
-    movies:[]
+    details:{},
+    imgs:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // 获取电影列表的数据
+    let id = options.id
+    console.log(id)
+    // 发起详细数据的请求
     wx.cloud.callFunction({
-      name: 'getMovieList'
-  }).then((res) => {
-      // console.log(res.result.data)
+      name:'getMovieById',
+      data: {
+        id
+      },
+    }).then( res => {
+      // console.log(res.result.data[0].id)
+      let result = res.result.data[0]
       this.setData({
-        movies: res.result.data
+        'details.导演': result.director,
+        'details.主演':result.starring,
+        'details.国家':result.country,
+        'details.类型':result.genre,
+        'details.年份':result.release_date + '年',
+        'details.时长':result.runtime + '分钟',
+        'imgs.url':result.cover,
+        'imgs.title':result.title,
+        'imgs.intro':result.intro,
+        'imgs.like':result.like
       })
-  })
+    }
 
-  },
-
-  /**
-   * 改变搜索状态
-   */
-  onSearching() {
-    // this.setData({
-    //   isSearch:true
-    // })
+)
   },
 
   /**
