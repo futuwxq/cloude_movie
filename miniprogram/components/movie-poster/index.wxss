@@ -28,8 +28,8 @@
   width: 45rpx;
   height: 45rpx;
   right: 48rpx;
-  bottom:50rpx;
-  border-bottom:10rpx solid #655757;
+  top: 57rpx;
+  border-top:10rpx solid #655757;
   border-right:10rpx solid #655757;
 }
 .movie-name {

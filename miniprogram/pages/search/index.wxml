@@ -11,9 +11,9 @@
       <text>精选</text>
     </view>
     <view class="movie-list">
-      <block wx:for="{{movies}}">
-        <navigator url="/pages/movie-detail/index?id={{item.id}}" >
-          <v-movie-item movieitem="{{item}}" wx:key="item.id" class="movie-list-item" />
+      <block wx:for="{{movies}}"  wx:key="item.id"  >
+        <navigator url="/pages/movie-detail/index?id={{item.id}}"  class="movie-list-item">
+          <v-movie-item movieitem="{{item}}"/>
         </navigator>
       </block>
     </view>

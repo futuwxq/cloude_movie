@@ -2,8 +2,8 @@
 view.movie-container {
   box-shadow: 2px 2px 3px #e3e3e3;
   flex-direction: column;
-  width: 220rpx;
-  height: 380rpx;
+  /* width: 220rpx;
+  height: 380rpx; */
   margin-bottom: 40rpx;
   font-size: 25rpx;
   background: #fff;

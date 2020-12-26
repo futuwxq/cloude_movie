@@ -34,12 +34,16 @@
 }
 .movie-list {
   display: flex;
+  width: 100%;
   flex-wrap: wrap;
-  justify-content:space-between;
+  justify-content:space-around;
   margin-top: 10rpx;
   padding: 0 20rpx;
 }
 .content-container .tab {
   margin: 20rpx;
   text-align: center;
+}
+.movie-list .movie-list-item {
+  width: 40%;
 }

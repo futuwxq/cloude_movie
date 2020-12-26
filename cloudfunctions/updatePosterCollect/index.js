@@ -12,14 +12,14 @@ exports.main = async (event, context) => {
   let count = event.count
   let id = event.id
   try {
-    return await db.collection('movielist')
+    return await db.collection('onemovie')
     .where({
       id:id
     }).update({
       // data 传入需要局部更新的数据
       data: {
-        'like.like_count':count,
-        'like.like_statu':like
+        like,
+        count
       }
     })
   } catch (e) {

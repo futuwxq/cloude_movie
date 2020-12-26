@@ -17,7 +17,7 @@
     </block>
   </view>
   <view class="bottom-bar">
-    <v-like  class="like" like="{{imgs.like.like_statu}}" count="{{imgs.like.like_count}}" />
+    <v-like  class="like" like="{{imgs.like.like_statu}}" count="{{imgs.like.like_count}}"  postFunction="updateMovieLike"  dataId="{{imgs.id}}"/>
     <v-share-button open-type="share" class="share-btn">
         <image slot="img" class="share" src="/images/share.png" />
     </v-share-button>

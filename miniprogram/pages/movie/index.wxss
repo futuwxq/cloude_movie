@@ -45,8 +45,9 @@ page {
     height: 60rpx;
 }
 .share-btn {
-    width: 60rpx !important;
+    width: 60rpx;
     height: 60rpx;
+    margin-top: 18rpx;
 }
 .share {
     width: 40rpx;
