@@ -15,6 +15,15 @@
   height: 34rpx;
 }
 
+.off-container  {
+  display: flex;
+  align-items: center;
+}
+.off-container .off-img {
+  width: 40rpx;
+  height: 40rpx;
+}
+
 .search-container{
     width: 85%;
     height: 60rpx;
@@ -59,4 +68,16 @@
 }
  .search-list .tag {
  margin: 10rpx;
+}
+.result-container {
+  width: 100%;
+  display: flex;
+  background: F5f8899;
+  padding: 0 40rpx;
+  padding-top: 130rpx;
+}
+
+.result-container image {
+  width: 260rpx;
+  height: 400rpx;
 }

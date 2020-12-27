@@ -35,11 +35,18 @@ Page({
    * 改变搜索状态
    */
   onSearching() {
-    // this.setData({
-    //   isSearch:true
-    // })
+    this.setData({
+      isSearch:true
+    })
   },
-
+  /**
+   * 
+   */
+  handleCancling() {
+    this.setData({
+      isSearch:false
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
