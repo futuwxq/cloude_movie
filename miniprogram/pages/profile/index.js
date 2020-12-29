@@ -25,7 +25,7 @@ Page({
 
   onGetInfo:function(event) {
       // console.log(event)
-      const userInfo = event.detail.userInfo
+      const { userInfo } = event.detail
       if(userInfo) {
         this.setData({
           userInfo,

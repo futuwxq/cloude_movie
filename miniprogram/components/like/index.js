@@ -41,7 +41,7 @@ Component({
                 return
             }
             let like = this.properties.like
-            console.log(like)
+            // console.log(like)
             let count = this.properties.count
             count = like ? count - 1 : count + 1
             this.setData({
@@ -59,8 +59,10 @@ Component({
                     // 这里需要传入的是改变之后的 properties 里面的值,count 和 index 是暂存值
                     // count,
                     // like,
-                    count: this.properties.count,
-                    like: this.properties.like,
+                    // count: this.properties.count,
+                    // like: this.properties.like,
+                    count,
+                    like:!like,
                     id: this.properties.dataId
                     // id:"1"
                 }
