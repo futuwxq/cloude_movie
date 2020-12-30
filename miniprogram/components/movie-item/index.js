@@ -5,7 +5,7 @@ Component({
    */
   properties: {
     movieitem: {
-      type: {}
+      type: Object
     }
   },
 

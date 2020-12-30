@@ -11,70 +11,40 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
+    onLoad: function(options) {
         // 加载数据
         wx.showLoading({
-            title: '加载中',
-        })
-        // 获取推荐页的数据
+                title: '加载中',
+            })
+            // 获取推荐页的数据
         wx.cloud.callFunction({
             name: 'getRecommendMovie'
         }).then((res) => {
             console.log(res.result.data)
             this.setData({
-                moviedetail: res.result.data[0]
-            })
-            // 已经请求数据，停止显示图标
+                    moviedetail: res.result.data[0]
+                })
+                // 已经请求数据，停止显示图标
             wx.hideLoading()
         })
     },
-
     /**
-     * 生命周期函数--监听页面初次渲染完成
+     * 上传用户喜欢状态
      */
-    onReady: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
+    onPostLike(e) {
+        let { like, count } = e.detail
+            // 更新数据库
+        wx.cloud.callFunction({
+            // 云函数名称
+            name: "updatePosterCollect",
+            // 传给云函数的参数 
+            data: {
+                count,
+                like,
+                _index: this.data.moviedetail._index
+            }
+        }).then((res) => {
+            console.log(res)
+        })
     }
 })

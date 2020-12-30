@@ -5,7 +5,7 @@
     <v-episode class="episode" />
     <!-- like -->
     <view class="like_container">
-      <v-like  class="like" like="{{moviedetail.like}}" count="{{moviedetail.count}}" postFunction="updatePosterCollect" dataId="{{moviedetail.id}}"/>
+      <v-like class="like" like="{{moviedetail.like}}" count="{{moviedetail.count}}" bind:postLike="onPostLike" />
       <!-- 分享按钮 -->
       <v-share-button open-type="share" class="share-btn">
         <image slot="img" class="share" src="/images/share.png" />
@@ -13,5 +13,5 @@
     </view>
   </view>
   <!-- movie picture -->
-  <v-movie imgurl="{{moviedetail.cover}}" words="{{moviedetail.quotations}}"/>
+  <v-movie imgurl="{{moviedetail.cover}}" words="{{moviedetail.quotations}}" />
 </view>

@@ -1,6 +1,6 @@
 <view class="container">
   <view class="img-container">
-    <image src="{{imgs.url}}"  />
+    <image src="{{imgs.url}}" />
     <view class="name">{{imgs.title}}</view>
   </view>
   <view class="infor-container">
@@ -17,9 +17,9 @@
     </block>
   </view>
   <view class="bottom-bar">
-    <v-like  class="like" like="{{imgs.like.like_statu}}" count="{{imgs.like.like_count}}"  postFunction="updateMovieLike"  dataId="{{imgs.id}}"/>
+    <v-like class="like" like="{{imgs.like.like_statu}}" count="{{imgs.like.like_count}}" bind:postLike="onPostLike" />
     <v-share-button open-type="share" class="share-btn">
-        <image slot="img" class="share" src="/images/share.png" />
+      <image slot="img" class="share" src="/images/share.png" />
     </v-share-button>
   </view>
 </view>
