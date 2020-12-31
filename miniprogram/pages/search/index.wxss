@@ -1,49 +1,58 @@
 /* pages/search/index.wxss */
+
+
 /* page {
   background-color: var(--backColor);
 } */
+
 .container .header {
-  position: fixed;
-  width: 100%;
-  height: 100rpx;
-  background:#fff; 
-  color: var(--themeColor);
-  border-top: 1px solid #f5f5f5;
-  border-bottom: 1px solid #f5f5f5;
+    position: fixed;
+    width: 100%;
+    height: 100rpx;
+    background: #fff;
+    color: var(--themeColor);
+    border-top: 1px solid #f5f5f5;
+    border-bottom: 1px solid #f5f5f5;
+    z-index: 999;
 }
 
 .search-box {
-  height: 60rpx;
-  line-height: 60rpx;
-  margin: 20rpx;
-  border-radius: 30rpx;
-  text-align: center;
-  background-color: var(--backColor); 
+    height: 60rpx;
+    line-height: 60rpx;
+    margin: 20rpx;
+    border-radius: 30rpx;
+    text-align: center;
+    background-color: var(--backColor);
 }
+
 .search-icon {
-  position: relative;
-  left: -10rpx;
-  top: 5rpx;
-  width: 35rpx;
-  height: 35rpx;
+    position: relative;
+    left: -10rpx;
+    top: 5rpx;
+    width: 35rpx;
+    height: 35rpx;
 }
 
 .content-container {
-  margin-top: 100rpx;
-  width: 100%;
+    margin-top: 100rpx;
+    width: 100%;
 }
+
 .movie-list {
-  display: flex;
-  width: 100%;
-  flex-wrap: wrap;
-  justify-content:space-around;
-  margin-top: 10rpx;
-  padding: 0 20rpx;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 10rpx;
+    padding: 0 20rpx;
 }
+
 .content-container .tab {
-  margin: 20rpx;
-  text-align: center;
+    margin: 20rpx;
+    text-align: center;
 }
-.movie-list .movie-list-item {
-  width: 40%;
-}
+
+
+/* .movie-list v-movie-item {
+    width: 40%;
+} */

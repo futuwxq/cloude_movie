@@ -1,4 +1,4 @@
-<!--pages/search/index.wxml-->
+<!-- pages/search/index.wxml -->
 <view class="container" wx:if="{{!isSearch}}">
   <view class="header">
     <view class="search-box" bindtap="onSearching">
@@ -8,14 +8,13 @@
   </view>
   <view class="content-container">
     <view class="tab">
-      <text>精选</text>
+      <!-- <text>/ 精选 /</text> -->
     </view>
     <view class="movie-list">
-        <navigator url="/pages/movie-detail/index?id={{item.id}}"  class="movie-list-item"  wx:for="{{movies}}"  wx:key="_id">
-          <v-movie-item movieitem="{{item}}"/>
-        </navigator>
+      <block wx:for="{{movies}}" wx:key="_id">
+        <v-movie-item movieitem="{{item}}" />
+      </block>
     </view>
-
   </view>
 </view>
 <view class="container" wx:if="{{isSearch}}">

@@ -19,7 +19,7 @@
     </view>
   </view>
   <view class="collect-container">
-    <view class="title">喜欢的电影</view>
+    <view class="title">收藏夹</view>
     <view class="list-container">
       <view class="empty-container">
       <image src="/images/empty.png" />

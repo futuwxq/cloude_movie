@@ -1,25 +1,55 @@
 <view class="container">
   <view class="img-container">
-    <image src="{{imgs.url}}" />
-    <view class="name">{{imgs.title}}</view>
-  </view>
-  <view class="infor-container">
-    <view class="title">基本信息</view>
-    <view class="infor" wx:for="{{details}}" wx:for-index="key" wx:for-item="value" wx:key="*this">
-      <view class="infor-item key">{{key}}</view>
-      <view class="infor-item value">{{value}}</view>
-    </view>
+    <image src="{{details.cover}}" />
+    <view class="name">{{details.title}}</view>
   </view>
   <view class="intro-container">
     <view class="title">影片简介</view>
-    <block wx:for="{{imgs.intro}}" wx:key="*this">
+    <block wx:for="{{details.intro}}" wx:key="id">
       <view class="para">{{item}}</view>
     </block>
   </view>
-  <view class="bottom-bar">
-    <v-like class="like" like="{{imgs.like.like_statu}}" count="{{imgs.like.like_count}}" bind:postLike="onPostLike" />
-    <v-share-button open-type="share" class="share-btn">
-      <image slot="img" class="share" src="/images/share.png" />
-    </v-share-button>
+  <view class="infor-container">
+    <view class="title">基本信息</view>
+    <view class="colum-container">
+      <view class="item">
+        <text class="keys">导演:</text>
+        <text class="values">{{details.director}}</text>
+      </view>
+      <view class="item">
+        <text class="keys">主演:</text>
+        <view class="starring values">
+          <block wx:for="{{details.starring}}" wx:key="*this">
+            <text>{{item}} {{index === details.starring.length-1 ? '': ','}}</text>
+          </block>
+        </view>
+      </view>
+      <view class="item">
+        <text class="keys">国家:</text>
+        <text class="values">{{details.country}}</text>
+      </view>
+      <view class="item">
+        <text class="keys">类型:</text>
+        <view class="types values">
+          <block wx:for="{{details.genre}}" wx:key="*this">
+            <text>{{item}} {{index === details.genre.length-1 ? '': ','}}</text>
+          </block>
+        </view>
+      </view>
+      <view class="item">
+        <text class="keys">年份:</text>
+        <text class="values">{{details.release_date}} 年</text>
+      </view>
+      <view class="item">
+        <text class="keys">时长:</text>
+        <text class="values">{{details.runtime}} 分钟</text>
+      </view>
+    </view>
+    <view class="bottom-bar">
+      <v-like class="like" like="{{details.like.like_statu}}" count="{{details.like.like_count}}" bind:postLike="onPostLike" />
+      <v-share-button open-type="share" class="share-btn">
+        <image slot="img" class="share" src="/images/share.png" />
+      </v-share-button>
+    </view>
   </view>
 </view>

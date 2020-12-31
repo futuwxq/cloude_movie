@@ -1,15 +1,14 @@
-<!--components/search-by-tag/index.wxml-->
+<!-- components/search-by-tag/index.wxml -->
 <view class="container">
   <!-- 搜索导航 -->
   <view class="header">
     <view class="search-container">
-      <image src="/images/search.png"/>
-    <input type="text" placeholder="电影名" value='{{searchText}}' focus="{{true}}" bindconfirm="onSearching"/>
-    <view class="off-container" bindtap="delateValue">
-    <image src="/images/off.png" class="off-img"/>
+      <image class="search" src="/images/search.png" />
+      <input type="text" placeholder="电影名" value='{{searchText}}' focus="{{true}}" bindconfirm="onSearching" />
+      <view class="off-container" bindtap="delateValue">
+        <image src="/images/off.png" class="off-img" />
+      </view>
     </view>
-    </view>
-
     <view class="cancle" bindtap="cancleSearching">取消</view>
   </view>
   <!-- 历史搜索 -->
@@ -18,25 +17,19 @@
       <view class="bar"></view>
       <view class="text">历史搜索</view>
       <view class="search-list">
-        <v-tag tags="东野圭吾" class="tag" />
-        <v-tag tags="东野圭吾" class="tag" />
-        <v-tag tags="东野圭吾" class="tag" />
+        <view class="list-container" wx:if="{{historyword.length != 0}}">
+          <block wx:for="{{historyword}}" wx:key="*this">
+            <v-tag tags="{{item}}" class="tag" data-title="{{item}}" bind:tap="onSearching" />
+          </block>
+        </view>
+        <view wx:else>历史搜索为空</view>
       </view>
     </view>
-    <!-- <view class="search-hot">
-      <view class="bar"></view>
-      <div class="text">热门搜索</div>
-      <view class="search-list">
-        <v-tag tags="python" class="tag" />
-      </view>
-    </view> -->
   </view>
   <!-- 检索结果 -->
   <view class="result-container" wx:if="{{isShowResult}}">
     <block wx:for="{{researchRes}}" wx:key="{{item._id}}">
-           <navigator url="/pages/movie-detail/index?id={{item.id}}"  class="movie-list-item">
-          <v-movie-item movieitem="{{item}}"/>
-        </navigator>
+      <v-movie-item movieitem="{{item}}" />
     </block>
   </view>
 </view>

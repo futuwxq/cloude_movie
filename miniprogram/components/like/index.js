@@ -41,7 +41,6 @@ Component({
                 return
             }
             let like = this.properties.like
-                // console.log(like)
             let count = this.properties.count
             count = like ? count - 1 : count + 1
             this.setData({
@@ -53,6 +52,19 @@ Component({
                 like: !like,
                 count
             }, {});
+            if(!like){
+                wx.showToast({
+                    title: '收藏成功',
+                    icon:'none'
+                  })
+            } else {
+                wx.showToast({
+                    title: '取消收藏',
+                    icon:'none'
+
+                  })
+            }
+
             // console.log(this.properties.postFunction)
             // //  更新数据库
             // wx.cloud.callFunction({

@@ -5,10 +5,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        details: {
-
-        },
-        imgs: {}
+        details: {},
+        // imgs: {}
     },
 
     /**
@@ -31,17 +29,7 @@ Page({
                 // console.log(res.result.data[0].id)
                 let result = res.result.data[0]
                 this.setData({
-                        'details.导演': result.director,
-                        'details.主演': result.starring,
-                        'details.国家': result.country,
-                        'details.类型': result.genre,
-                        'details.年份': result.release_date + '年',
-                        'details.时长': result.runtime + '分钟',
-                        'imgs.url': result.cover,
-                        'imgs.title': result.title,
-                        'imgs.intro': result.intro,
-                        'imgs.like': result.like,
-                        'imgs.id': result.id,
+                        details: result
                     })
                     // 已经请求数据，停止显示图标
                 wx.hideLoading()
@@ -63,7 +51,7 @@ Page({
             data: {
                 count,
                 like,
-                id: this.data.imgs.id
+                id: this.data.details.id
             }
         }).then((res) => {
             console.log(res)

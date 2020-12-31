@@ -71,12 +71,6 @@
           "pathName": "pages/profile/index",
           "query": "",
           "scene": null
-        },
-        {
-          "name": "详情",
-          "pathName": "pages/movie-detail/index",
-          "query": "id=\"1292064\"",
-          "scene": null
         }
       ]
     }
