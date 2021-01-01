@@ -8,6 +8,12 @@ Component({
      * 组件的属性列表
      */
     properties: {
+        more: {
+            type: Boolean,
+            observers: function() {
+                console.log(1);
+            }
+        },
 
     },
 
@@ -19,7 +25,13 @@ Component({
         researchRes: [],
         isShowResult: false,
         historyword: [],
+        noResult: false
     },
+    // observers: {
+    //     'more': function(more) {
+    //         console.log(more);
+    //     }
+    // },
 
     attached: function() {
         // 在组件实例进入页面节点树时执行
@@ -45,11 +57,13 @@ Component({
                             title: keywords
                         }
                     }).then((res) => {
-                        console.log(res.result.data[0])
+                        const result = res.result.data;
                         this.setData({
-                            researchRes: res.result.data,
+                            noResult: result.length === 0 ? true : false,
+                            researchRes: result,
                             isShowResult: true,
-                            searchText: keywords
+                            searchText: keywords,
+
                         })
                     })
                     // 存入历史搜索
@@ -69,7 +83,8 @@ Component({
             console.log("删除")
             this.setData({
                 searchText: '',
-                isShowResult: false
+                isShowResult: false,
+                noResult: false
             })
         },
         // 点击取消，返回搜索界面

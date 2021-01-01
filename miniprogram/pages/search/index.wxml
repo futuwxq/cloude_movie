@@ -7,9 +7,9 @@
     </view>
   </view>
   <view class="content-container">
-    <view class="tab">
-      <!-- <text>/ 精选 /</text> -->
-    </view>
+    <!-- <view class="tab">
+      <text>/ 精选 /</text>
+    </view> -->
     <view class="movie-list">
       <block wx:for="{{movies}}" wx:key="_id">
         <v-movie-item movieitem="{{item}}" />

@@ -97,6 +97,15 @@
     padding-top: 130rpx;
 }
 
+.no-result {
+    /* margin: 20rpx; */
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+}
+
 
 /* .result-container image {
     width: 260rpx;

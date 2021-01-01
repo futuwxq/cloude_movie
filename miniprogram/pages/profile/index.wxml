@@ -1,14 +1,15 @@
-<!--pages/profile/index.wxml-->
+<!-- pages/profile/index.wxml -->
 <view class="container">
   <image src="/images/my-back.jpg" class="bg" />
-  <v-login-button  wx:if="{{!authorized}}"  open-type="getUserInfo" class="avatar-position" bindgetInfo="onGetInfo">
+  <v-login-button wx:if="{{!authorized}}" open-type="getUserInfo" class="avatar-position" bindgetInfo="onGetInfo">
     <image slot="img" class="avatar" src="/images/my.png" />
   </v-login-button>
   <view wx:if="{{authorized}}" class="avatar-container avatar-position">
-        <image src="{{userInfo.avatarUrl}}" class="avatar" />
-        <text>{{userInfo.nickName}}</text>
+    <image src="{{userInfo.avatarUrl}}" class="avatar" />
+    <text>{{userInfo.nickName}}</text>
   </view>
   <view class="about-container">
+    <!-- <button open-type="getUserInfo" bind:getuserinfo="onGetUserInfo">授权</button> -->
     <view class="about item">
       <image src="/images/about.png" />
       <text>关于程序</text>
@@ -20,10 +21,9 @@
   </view>
   <view class="collect-container">
     <view class="title">收藏夹</view>
-    <view class="list-container">
-      <view class="empty-container">
+    <view class="list-container" wx:if="{{collections.length != 0}}"></view>
+    <view class="empty-container" wx:else>
       <image src="/images/empty.png" />
-      </view>
     </view>
   </view>
 </view>
