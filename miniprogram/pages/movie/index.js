@@ -6,8 +6,8 @@ Page({
      */
     data: {
         moviedetail: {},
+        modalShow: false
     },
-
     /**
      * 生命周期函数--监听页面加载
      */
@@ -46,5 +46,27 @@ Page({
         }).then((res) => {
             console.log(res)
         })
-    }
+    },
+    /**
+     * 登录状态框
+     */
+    onAuthoried() {
+        this.setData({
+            modalShow: true
+        })
+        this.onModalShow()
+    },
+    onModalShow() {
+        // 判断用户是否授权
+        wx.getSetting({
+            success: (res) => {
+                console.log(res)
+                if (!res.authSetting['scope.userInfo']) {
+                    this.setData({
+                        modalShow: true,
+                    })
+                }
+            }
+        })
+    },
 })

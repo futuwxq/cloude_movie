@@ -1,4 +1,6 @@
 // components/like/index.js
+// import { UserAuthorizedModel } from "../../models/userAuthorized"
+// const userAuthorizedModel = new UserAuthorizedModel()
 Component({
     /**
      * 组件的属性列表
@@ -28,16 +30,45 @@ Component({
     data: {
         // like and  unlike icon path
         yesSrc: 'images/like_o.png',
-        noSrc: 'images/like.png'
+        noSrc: 'images/like.png',
+        authorized: false,
     },
 
     /**
      * 组件的方法列表
      */
     methods: {
+        getUserAuthorized() {
+
+            wx.getSetting({
+                success: res => {
+                    if (res.authSetting['scope.userInfo']) {
+                        this.setData({
+                            authorized: true
+                        })
+                    } else {
+                        // 需要弹起登录框
+                        this.triggerEvent('onAuthoried', {}, {})
+                    }
+                }
+            })
+
+            // 检查用户是否授权
+            // console.log(UserAuthorizedModel.getUserAuthorized());
+            // if (UserAuthorizedModel.getUserAuthorized()) {
+            //     this.setData({
+            //         authorized: true
+            //     })
+            // } else {
+            //     // 需要弹起登录框
+            //     this.triggerEvent('onAuthoried', {}, {})
+            // }
+        },
         onLike: function(event) {
+            this.getUserAuthorized()
+
             // 自定义事件
-            if (this.properties.readOnly) {
+            if (this.properties.readOnly || !this.data.authorized) {
                 return
             }
             let like = this.properties.like
@@ -52,40 +83,18 @@ Component({
                 like: !like,
                 count
             }, {});
-            if(!like){
+            if (!like) {
                 wx.showToast({
                     title: '收藏成功',
-                    icon:'none'
-                  })
+                    icon: 'none'
+                })
             } else {
                 wx.showToast({
                     title: '取消收藏',
-                    icon:'none'
+                    icon: 'none'
 
-                  })
+                })
             }
-
-            // console.log(this.properties.postFunction)
-            // //  更新数据库
-            // wx.cloud.callFunction({
-            //     // 云函数名称
-            //     // name: "updatePosterCollect",
-            //     name: this.properties.postFunction,
-            //     // 传给云函数的参数 
-            //     data: {
-            //         // 这里需要传入的是改变之后的 properties 里面的值,count 和 index 是暂存值
-            //         // count,
-            //         // like,
-            //         // count: this.properties.count,
-            //         // like: this.properties.like,
-            //         count,
-            //         like:!like,
-            //         id: this.properties.dataId
-            //         // id:"1"
-            //     }
-            // }).then((res) => {
-            //     console.log(res)
-            // })
         }
     }
 })

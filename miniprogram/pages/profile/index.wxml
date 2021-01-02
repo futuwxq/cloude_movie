@@ -6,12 +6,12 @@
   </v-login-button>
   <view wx:if="{{authorized}}" class="avatar-container avatar-position">
     <image src="{{userInfo.avatarUrl}}" class="avatar" />
-    <text>{{userInfo.nickName}}</text>
+    <view>{{userInfo.nickName}}</view>
   </view>
   <view class="about-container">
     <!-- <button open-type="getUserInfo" bind:getuserinfo="onGetUserInfo">授权</button> -->
     <view class="about item">
-      <image src="/images/about.png" />
+      <image bind:tap="onAbout" src="/images/about.png" />
       <text>关于程序</text>
     </view>
     <view class="share item">

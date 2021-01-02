@@ -3,7 +3,9 @@
     "pages/movie/index",
     "pages/search/index",
     "pages/profile/index",
-    "pages/movie-detail/index"
+    "pages/movie-detail/index",
+    "pages/about/index",
+    "components/mask/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

@@ -13,7 +13,7 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onShow: function(options) {
+    onLoad: function(options) {
         this.userAuthorized()
 
     },
@@ -22,10 +22,11 @@ Page({
         wx.getSetting({
             // 箭头函数不会改变 this
             success: (res) => {
+                console.log(res);
                 if (res.authSetting['scope.userInfo']) {
                     wx.getUserInfo({
                         success: (res) => {
-                            console.log(res);
+                            console.log(res)
                             this.setData({
                                 userInfo: res.userInfo,
                                 authorized: true
@@ -45,6 +46,15 @@ Page({
                 authorized: true
             })
         }
+    },
+    /**
+     * 进入关于页面
+     */
+    onAbout() {
+        // console.log(e);
+        wx.navigateTo({
+            url: '/pages/about/index'
+        })
     },
     /**
      * 生命周期函数--监听页面显示

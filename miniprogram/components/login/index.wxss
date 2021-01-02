@@ -1,0 +1,13 @@
+/* components/login/index.wxss */
+
+.login-contianer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 200rpx;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    z-index: 999;
+}

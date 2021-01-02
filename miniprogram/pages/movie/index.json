@@ -3,6 +3,8 @@
         "v-like": "/components/like/index",
         "v-share-button":"/components/button/index",
         "v-episode":"/components/episode/index",
-        "v-movie":"/components/movie-poster/index"
+        "v-movie":"/components/movie-poster/index",
+        "v-login":"/components/login/index",
+        "v-mask":"/components/mask/index"
     }
 }

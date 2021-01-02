@@ -1,0 +1,23 @@
+<!-- miniprogram/pages/about/index.wxml -->
+<view class="container">
+  <view class="intro-container">
+    <view class="title">程序介绍</view>
+    <view class="content">
+      <view class="para">本程序由原生小程序开发</view>
+      <view class="para">该程序的页面逻辑代码由本人独立完成，出现问题，请及时反馈，谢谢！</view>
+    </view>
+  </view>
+  <view class="contact-container">
+    <view class="title">联系方式</view>
+    <view class="content">
+      <view class="item">
+        <text class="key">Github:</text>
+        <text class="value"></text>
+      </view>
+      <view class="item">
+        <text class="key">微信:</text>
+        <text class="value"></text>
+      </view>
+    </view>
+  </view>
+</view>

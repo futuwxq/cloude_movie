@@ -1,64 +1,75 @@
 /* pages/profile/index.wxss */
+
 .container .bg {
-  width: 100%;
-  height: 300rpx;
+    width: 100%;
+    height: 300rpx;
 }
 
 .avatar-position {
-  position: absolute;
-  top: 255rpx;
-  left: 50%;
-  margin-left: -188rpx;
+    position: absolute;
+    top: 255rpx;
+    left: 50%;
+    margin-left: -188rpx;
+}
+
+view.avatar-container {
+    margin-left: -60rpx;
 }
 
 .avatar {
-  width: 120rpx;
-  height: 120rpx;
-  overflow: hidden;
-  border-radius: 50%;
+    width: 120rpx;
+    height: 120rpx;
+    overflow: hidden;
+    border-radius: 50%;
 }
 
 .about-container {
-  margin-top: 130rpx;
-  display: flex;
-  align-items: center;
-  padding-bottom: 20rpx;
-border-bottom: 1px solid #e6e2e2;
+    margin-top: 130rpx;
+    display: flex;
+    align-items: center;
+    padding-bottom: 20rpx;
+    border-bottom: 1px solid #e6e2e2;
+}
 
+.avatar-container view {
+    padding-left: 20rpx;
+    color: #666;
 }
-.avatar-container  text {
-  padding-left: 20rpx;
-  color: #666;
-}
+
 .about-container .item {
-  display: flex;
-  flex: 1;
-flex-direction: column;
-align-items: center;
-font-size: 23rpx;
-color: var(--themeColor);
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    font-size: 23rpx;
+    color: var(--themeColor);
 }
-.about-container .item  image {
-  width: 40rpx;
-  height: 40rpx;
-  margin-bottom: 10rpx;
+
+.about-container .item image {
+    width: 40rpx;
+    height: 40rpx;
+    margin-bottom: 10rpx;
 }
+
 .collect-container {
-  width: 100%;
+    width: 100%;
 }
-.collect-container .title{
-  text-align: center;
-  height: 100rpx;
-  line-height: 100rpx;
-  background: var(--backColor);
+
+.collect-container .title {
+    text-align: center;
+    height: 100rpx;
+    line-height: 100rpx;
+    background: var(--backColor);
 }
+
 .empty-container {
-  position: relative;
+    position: relative;
 }
+
 .empty-container image {
-  width: 200rpx;
-  height: 200rpx;
-  position: absolute;
-  top: 150rpx;
-  left: 270rpx;
+    width: 200rpx;
+    height: 200rpx;
+    position: absolute;
+    top: 150rpx;
+    left: 270rpx;
 }
