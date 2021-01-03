@@ -1,12 +1,13 @@
 // miniprogram/pages/movie-detail/index.js
+var showModelBev = require('../../components/behaviors/showModel.js')
 Page({
+    behaviors: [showModelBev],
 
     /**
      * 页面的初始数据
      */
     data: {
         details: {},
-        // imgs: {}
     },
 
     /**
@@ -18,24 +19,7 @@ Page({
             title: '加载中',
         })
         let id = options.id
-        console.log(id)
-            // 发起详细数据的请求
-        wx.cloud.callFunction({
-            name: 'getMovieById',
-            data: {
-                id
-            },
-        }).then(res => {
-                // console.log(res.result.data[0].id)
-                let result = res.result.data[0]
-                this.setData({
-                        details: result
-                    })
-                    // 已经请求数据，停止显示图标
-                wx.hideLoading()
-            }
-
-        )
+        this._getMovieDetail(id)
     },
     /**
      * 
@@ -56,5 +40,28 @@ Page({
         }).then((res) => {
             console.log(res)
         })
-    }
+    },
+    /**
+     * 
+     *获取电影详情页数据
+     */
+    _getMovieDetail(id) {
+        // 发起详细数据的请求
+        wx.cloud.callFunction({
+            name: 'getMovieById',
+            data: {
+                id
+            },
+        }).then(res => {
+                // console.log(res.result.data[0].id)
+                let result = res.result.data[0]
+                this.setData({
+                        details: result
+                    })
+                    // 已经请求数据，停止显示图标
+                wx.hideLoading()
+            }
+
+        )
+    },
 })

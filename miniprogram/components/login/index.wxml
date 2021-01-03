@@ -1,4 +1,5 @@
 <!-- components/login/index.wxml -->
-<view class="login-contianer" wx:if="{{modalShow}}">
-  <button open-type="getUserInfo" bindgetuserinfo="getUserInfor" type="warn">获取微信授权信息</button>
+<view class="login-contianer">
+  <image class="off" src="/images/off.png" bind:tap="cancleLogin" />
+  <button open-type="getUserInfo" bindgetuserinfo="getUserInfor">获取微信授权信息</button>
 </view>

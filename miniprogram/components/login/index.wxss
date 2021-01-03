@@ -11,3 +11,16 @@
     align-items: center;
     z-index: 999;
 }
+
+.login-contianer .off {
+    position: absolute;
+    top: 10rpx;
+    right: 10rpx;
+    width: 60rpx;
+    height: 60rpx;
+}
+
+.login-contianer button {
+    background: #fa5151;
+    color: #fff;
+}

@@ -20,13 +20,16 @@ Component({
             const userInfo = event.detail.userInfo
                 // 允许授权
             if (userInfo) {
-                this.setData({
-                    modalShow: false
-                })
-                this.triggerEvent('loginsuccess', userInfo)
+                this.triggerEvent('loginsuccess', userInfo, {})
             } else {
-                this.triggerEvent('loginfail')
+                this.triggerEvent('loginfail', {}, {})
             }
+        },
+        /**
+         * 取消授权，关闭授权框的效果和授权失败效果一致
+         */
+        cancleLogin() {
+            this.triggerEvent('loginfail', {}, {})
         }
     }
 })

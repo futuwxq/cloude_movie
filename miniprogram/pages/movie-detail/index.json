@@ -1,6 +1,9 @@
 {
-  "usingComponents": {
-    "v-like": "/components/like/index",
-    "v-share-button":"/components/button/index"
-  }
+    "usingComponents": {
+        "v-like": "/components/like/index",
+        "v-share-button": "/components/button/index",
+        "v-login": "/components/login/index",
+        "v-mask": "/components/mask/index"
+
+    }
 }

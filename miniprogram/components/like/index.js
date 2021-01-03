@@ -1,5 +1,6 @@
 // components/like/index.js
 // import { UserAuthorizedModel } from "../../models/userAuthorized"
+
 // const userAuthorizedModel = new UserAuthorizedModel()
 Component({
     /**
@@ -15,13 +16,13 @@ Component({
         readOnly: {
             type: Boolean,
             value: false
+        },
+        isLoadData: Boolean
+    },
+    observers: {
+        isLoadData: function(isLoadData) {
+            if (isLoadData) this.postLikeData()
         }
-        // dataId: {
-        //     type: String,
-        // },
-        // postFunction: {
-        //     type: String
-        // }
     },
 
     /**
@@ -31,46 +32,56 @@ Component({
         // like and  unlike icon path
         yesSrc: 'images/like_o.png',
         noSrc: 'images/like.png',
-        authorized: false,
+        // authorized: false,
     },
 
     /**
      * 组件的方法列表
      */
     methods: {
-        getUserAuthorized() {
-
-            wx.getSetting({
-                success: res => {
-                    if (res.authSetting['scope.userInfo']) {
-                        this.setData({
-                            authorized: true
-                        })
-                    } else {
-                        // 需要弹起登录框
-                        this.triggerEvent('onAuthoried', {}, {})
-                    }
-                }
-            })
-
-            // 检查用户是否授权
-            // console.log(UserAuthorizedModel.getUserAuthorized());
-            // if (UserAuthorizedModel.getUserAuthorized()) {
-            //     this.setData({
-            //         authorized: true
-            //     })
-            // } else {
-            //     // 需要弹起登录框
-            //     this.triggerEvent('onAuthoried', {}, {})
-            // }
-        },
         onLike: function(event) {
-            this.getUserAuthorized()
-
-            // 自定义事件
-            if (this.properties.readOnly || !this.data.authorized) {
+            if (this.properties.readOnly) {
                 return
             }
+            this.getUserAuthorized()
+                // console.log((this.properties.isLoadData));
+                // this.postLikeData()
+        },
+        /**
+         * 用户点击收藏组件
+         * 1.判断用户是否授权
+         *  1.1 未授权向 movie 组件发起事件
+         *  1.2 已经授权 调用上传数据函数
+         */
+        getSetting() {
+            return new Promise((resolve, reject) => {
+                wx.getSetting({
+                    success: (res) => {
+                        resolve(res.authSetting)
+                    },
+                    fail: (res) => {
+                        reject(res)
+
+                    }
+
+                })
+            })
+        },
+        async getUserAuthorized() {
+            const setting = await this.getSetting()
+            if (setting['scope.userInfo']) {
+                console.log("已经授权");
+                this.postLikeData()
+            } else {
+                //未授权 需要弹起登录框
+                this.triggerEvent('onLogin', {}, {})
+            }
+        },
+        /**
+         * 上传like状态和数量
+         */
+        postLikeData() {
+
             let like = this.properties.like
             let count = this.properties.count
             count = like ? count - 1 : count + 1
@@ -83,7 +94,14 @@ Component({
                 like: !like,
                 count
             }, {});
-            if (!like) {
+            this.onShowToast()
+
+        },
+        /**
+         * toast 提示信息
+         */
+        onShowToast() {
+            if (this.data.like) {
                 wx.showToast({
                     title: '收藏成功',
                     icon: 'none'
