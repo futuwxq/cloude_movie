@@ -1,4 +1,6 @@
 // pages/profile/index.js
+import { UserAuthorizedModel } from '../../models/userAuthorized';
+const userAuthorizedModel = new UserAuthorizedModel()
 Page({
 
     /**
@@ -14,11 +16,48 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-        this.userAuthorized()
+        this._userAuthorized()
+        console.log(this.data.authorized);
 
     },
+    onUserGetInfo: function(event) {
+        const { userInfo } = event.detail
+        if (userInfo) {
+            this.setData({
+                    userInfo,
+                    authorized: true
+                })
+                // 上传用户的信息
+            const nickName = userInfo.nickName
+            userAuthorizedModel.saveUser(nickName)
+        }
+    },
+    /**
+     * 用户登录后，保存用户信息
+     */
+    // saveUser(nickName) {
+    //     const registerdate = new Date()
+    //     wx.cloud.callFunction({
+    //         name: 'addUser',
+    //         data: {
+    //             nickName,
+    //             registerdate
+    //         }
+    //     }).then(res => {
+    //         console.log(res);
+    //     })
+    // },
+    /**
+     * 进入关于页面
+     */
+    onAbout() {
+        // console.log(e);
+        wx.navigateTo({
+            url: '/pages/about/index'
+        })
+    },
     // 用户是否授权。授权之后获取用户的信息
-    userAuthorized() {
+    _userAuthorized() {
         wx.getSetting({
             // 箭头函数不会改变 this
             success: (res) => {
@@ -26,7 +65,6 @@ Page({
                 if (res.authSetting['scope.userInfo']) {
                     wx.getUserInfo({
                         success: (res) => {
-                            console.log(res)
                             this.setData({
                                 userInfo: res.userInfo,
                                 authorized: true
@@ -37,25 +75,7 @@ Page({
             }
         })
     },
-    onGetInfo: function(event) {
-        console.log(event)
-        const { userInfo } = event.detail
-        if (userInfo) {
-            this.setData({
-                userInfo,
-                authorized: true
-            })
-        }
-    },
-    /**
-     * 进入关于页面
-     */
-    onAbout() {
-        // console.log(e);
-        wx.navigateTo({
-            url: '/pages/about/index'
-        })
-    },
+
     /**
      * 生命周期函数--监听页面显示
      */

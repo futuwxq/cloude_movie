@@ -10,10 +10,10 @@ const db = cloud.database()
 exports.main = async(event, context) => {
     let like = event.like
     let count = event.count
-    let _index = event._index
+    let id = event.id
         return db.collection('onemovie')
             .where({
-                _index: _index
+                id,
             }).update({
                 // data 传入需要局部更新的数据
                 data: {

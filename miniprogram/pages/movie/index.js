@@ -28,21 +28,55 @@ Page({
      * 上传用户喜欢状态和数量
      */
     onPostLike(e) {
-        let { like, count } = e.detail
-            // 更新数据库
-        wx.cloud.callFunction({
-            // 云函数名称
-            name: "updatePosterCollect",
-            // 传给云函数的参数 
-            data: {
-                count,
-                like,
-                _index: this.data.moviedetail._index
-            }
-        }).then((res) => {
-            console.log(res)
-        })
+        const { like, count } = e.detail
+        const id = this.data.moviedetail.id
+        this.postLike(id, like, count, "updatePosterCollect")
+        this.postCollect(like, id)
     },
+    /**
+     * 上传用户喜欢的状态和数量
+     */
+    // postLike(id, like, count, name) {
+    //     // 更新数据库
+    //     wx.cloud.callFunction({
+    //         // 云函数名称
+    //         name,
+    //         // 传给云函数的参数 
+    //         data: {
+    //             count,
+    //             like,
+    //             id
+    //         }
+    //     }).then((res) => {
+    //         console.log(res)
+    //     })
+    // },
+    // /**
+    //  * 
+    //  * 新建收藏表
+    //  */
+    // buildCollect() {
+    //     wx.cloud.callFunction({
+    //         name: 'initCollectMovie',
+    //     }).then((res) => {
+    //         console.log(res)
+    //     })
+    // },
+    // /**
+    //  * 上传用户喜欢的电影
+    //  */
+    // postCollect(like, id) {
+    //     wx.cloud.callFunction({
+    //         name: 'updateCollectMovie',
+    //         data: {
+    //             like,
+    //             id,
+    //         }
+    //     }).then((res) => {
+    //         console.log(res)
+    //     })
+
+    // },
     // /**
     //  * 显示授权状态框
     //  */
@@ -51,14 +85,15 @@ Page({
     //     this._showModel()
 
     // },
-    // /**
-    //  * 登录成功
-    //  */
+    /**
+     * 登录成功
+     */
     // LoginSuccess() {
     //     // 收起登录框
     //     this.setData({
     //         modalShow: false
     //     })
+    //     this.buildCollect()
     // },
     // /**
     //  * 授权失败

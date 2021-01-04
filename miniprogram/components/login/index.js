@@ -1,4 +1,6 @@
 // components/author-button/index.js
+import { UserAuthorizedModel } from '../../models/userAuthorized';
+const userAuthorizedModel = new UserAuthorizedModel()
 Component({
     /**
      * 组件的属性列表
@@ -20,7 +22,10 @@ Component({
             const userInfo = event.detail.userInfo
                 // 允许授权
             if (userInfo) {
+                const nickName = userInfo.nickName
                 this.triggerEvent('loginsuccess', userInfo, {})
+                    // 上传用户的信息 
+                userAuthorizedModel.saveUser(nickName)
             } else {
                 this.triggerEvent('loginfail', {}, {})
             }

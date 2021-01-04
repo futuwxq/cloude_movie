@@ -1,7 +1,7 @@
 <!-- pages/profile/index.wxml -->
 <view class="container">
   <image src="/images/my-back.jpg" class="bg" />
-  <v-login-button wx:if="{{!authorized}}" open-type="getUserInfo" class="avatar-position" bindgetInfo="onGetInfo">
+  <v-login-button wx:if="{{!authorized}}" open-type="getUserInfo" class="avatar-position" bindgetInfo="onUserGetInfo">
     <image slot="img" class="avatar" src="/images/my.png" />
   </v-login-button>
   <view wx:if="{{authorized}}" class="avatar-container avatar-position">

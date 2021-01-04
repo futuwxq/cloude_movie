@@ -44,8 +44,6 @@ Component({
                 return
             }
             this.getUserAuthorized()
-                // console.log((this.properties.isLoadData));
-                // this.postLikeData()
         },
         /**
          * 用户点击收藏组件
@@ -81,7 +79,6 @@ Component({
          * 上传like状态和数量
          */
         postLikeData() {
-
             let like = this.properties.like
             let count = this.properties.count
             count = like ? count - 1 : count + 1

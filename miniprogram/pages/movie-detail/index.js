@@ -26,20 +26,24 @@ Page({
      * 提交like状态
      */
     onPostLike(e) {
-        let { like, count } = e.detail
-            // 更新数据库
-        wx.cloud.callFunction({
-            // 云函数名称
-            name: "updateMovieLike",
-            // 传给云函数的参数 
-            data: {
-                count,
-                like,
-                id: this.data.details.id
-            }
-        }).then((res) => {
-            console.log(res)
-        })
+        const { like, count } = e.detail
+        const id = this.data.details.id
+        this.postLike(id, like, count, "updateMovieLike")
+        this.postCollect(like, id)
+
+        // 更新数据库
+        // wx.cloud.callFunction({
+        //     // 云函数名称
+        //     name: "updateMovieLike",
+        //     // 传给云函数的参数 
+        //     data: {
+        //         count,
+        //         like,
+        //         id: this.data.details.id
+        //     }
+        // }).then((res) => {
+        //     console.log(res)
+        // })
     },
     /**
      * 
