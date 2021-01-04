@@ -2,8 +2,12 @@
 // import {
 //     ShowModelBev
 // } from "../../components/behaviors/showModel.js"
-
-var showModelBev = require('../../components/behaviors/showModel.js')
+const app = getApp(); //写在页面顶部page()外
+const showModelBev = require('../../components/behaviors/showModel.js')
+    // const random = require('../../utils/random.js')
+import {
+    random
+} from '../../utils/random.js'
 Page({
     behaviors: [showModelBev],
     /**
@@ -32,6 +36,11 @@ Page({
         const id = this.data.moviedetail.id
         this.postLike(id, like, count, "updatePosterCollect")
         this.postCollect(like, id)
+            // 改变全局变量movieLike的值
+
+        app.globalData.movieLike = random(16)
+        console.log(app.globalData.movieLike);
+
     },
     /**
      * 上传用户喜欢的状态和数量

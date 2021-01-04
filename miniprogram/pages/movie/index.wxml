@@ -13,7 +13,7 @@
     </view>
   </view>
   <!-- movie picture -->
-  <v-movie imgurl="{{moviedetail.cover}}" words="{{moviedetail.quotations}}" />
+  <v-movie imgurl="{{moviedetail.poster}}" words="{{moviedetail.quotations}}" />
 </view>
 <v-login wx:if="{{modalShow}}" bind:loginsuccess="LoginSuccess" bind:loginfail="LoginFail" />
 <v-mask wx:if="{{modalShow}}" />

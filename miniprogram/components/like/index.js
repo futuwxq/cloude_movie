@@ -107,7 +107,6 @@ Component({
                 wx.showToast({
                     title: '取消收藏',
                     icon: 'none'
-
                 })
             }
         }

@@ -21,9 +21,14 @@
   </view>
   <view class="collect-container">
     <view class="title">收藏夹</view>
-    <view class="list-container" wx:if="{{collections.length != 0}}"></view>
-    <view class="empty-container" wx:else>
+    <view wx:if="{{!authorized}}"></view>
+    <view class="empty-container" wx:elif="{{collections.length === 0}}">
       <image src="/images/empty.png" />
+    </view>
+    <view class="list-container" wx:else>
+      <block wx:for="{{collections}}" wx:key="id">
+        <v-collection infor="{{item}}" />
+      </block>
     </view>
   </view>
 </view>

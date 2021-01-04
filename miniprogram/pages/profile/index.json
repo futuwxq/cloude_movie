@@ -1,5 +1,6 @@
 {
-  "usingComponents": {
-    "v-login-button":"/components/button/index"
-  }
+    "usingComponents": {
+        "v-login-button": "/components/button/index",
+        "v-collection": "/components/collection/index"
+    }
 }

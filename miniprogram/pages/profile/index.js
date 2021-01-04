@@ -1,4 +1,5 @@
 // pages/profile/index.js
+const app = getApp(); //写在页面顶部page()外
 import { UserAuthorizedModel } from '../../models/userAuthorized';
 const userAuthorizedModel = new UserAuthorizedModel()
 Page({
@@ -11,15 +12,34 @@ Page({
         userInfo: null,
         collections: []
     },
+    observers: {
+        'app.globalData.movieLike' (newval, oldVal) {
+            console.log(newval);
+            this._getCollection()
+        }
+    },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
+        // console.log('onUnload');
         this._userAuthorized()
-        console.log(this.data.authorized);
+        this._getCollection()
+            // console.log(app.globalData.movieLike);
+
 
     },
+    /**
+     * 生命周期函数--监听页面卸载
+     */
+    // onTabItemTap: function() {
+    //     console.log('onUnload');
+    //     wx.showLoading({
+    //         title: '加载中',
+    //     })
+    //     this._getCollection()
+    // },
     onUserGetInfo: function(event) {
         const { userInfo } = event.detail
         if (userInfo) {
@@ -55,6 +75,20 @@ Page({
         wx.navigateTo({
             url: '/pages/about/index'
         })
+    },
+    _getCollection() {
+        wx.cloud.callFunction({
+            name: 'getCollection'
+        }).then(res => {
+            res.result.list[0]
+            const collections = [...res.result.list[0].infor, ...res.result.list[0].reinfor]
+            this.setData({
+                    collections,
+                })
+                // wx.hideLoading()
+                // console.log(collections);
+        })
+
     },
     // 用户是否授权。授权之后获取用户的信息
     _userAuthorized() {

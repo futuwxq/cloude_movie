@@ -1,0 +1,6 @@
+<!-- components/collection/index.wxml -->
+<view class="collection-container" bind:tap="toDetail">
+  <image class="like" src="/images/like_o.png" />
+  <image class="back" src="{{infor.cover}}" />
+  <view class="title">{{infor.title}}</view>
+</view>
