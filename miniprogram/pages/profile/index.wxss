@@ -76,7 +76,7 @@ view.avatar-container {
 
 .list-container {
     width: 100%;
-    padding: 90rpx;
+    padding: 40rpx 90rpx;
     /* display: flex;
     flex-wrap: wrap;
     justify-content: space-around; */
@@ -89,3 +89,8 @@ view.avatar-container {
 .list-container v-collection:nth-child(odd) {
     margin-right: 80rpx;
 }
+
+
+/* .list-container v-load-more {
+    background: #d81e06;
+} */

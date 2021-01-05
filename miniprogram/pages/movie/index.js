@@ -34,7 +34,7 @@ Page({
     onPostLike(e) {
         const { like, count } = e.detail
         const id = this.data.moviedetail.id
-        this.postLike(id, like, count, "updatePosterCollect")
+        this.postLike(id, like, count)
         this.postCollect(like, id)
             // 改变全局变量movieLike的值
 
@@ -126,9 +126,9 @@ Page({
         wx.cloud.callFunction({
             name: 'getRecommendMovie'
         }).then((res) => {
-            console.log(res.result.data)
+            // console.log(res.result.list)
             this.setData({
-                    moviedetail: res.result.data[0]
+                    moviedetail: res.result.list[0]
                 })
                 // 已经请求数据，停止显示图标
             wx.hideLoading()

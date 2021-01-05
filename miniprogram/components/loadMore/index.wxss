@@ -1,0 +1,12 @@
+/* components/loadMore/index.wxss */
+
+.load-contianer {
+    background: #f44336;
+    border-radius: 2px;
+}
+
+.load-contianer button {
+    border: none;
+    color: #ffffff;
+    font-weight: normal;
+}

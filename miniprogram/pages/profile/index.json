@@ -1,6 +1,7 @@
 {
     "usingComponents": {
         "v-login-button": "/components/button/index",
-        "v-collection": "/components/collection/index"
+        "v-collection": "/components/collection/index",
+        "v-load-more": "/components/loadMore/index"
     }
 }

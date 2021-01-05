@@ -1,1 +1,54 @@
 /* miniprogram/pages/about/index.wxss */
+
+.container {
+    border-top: 1px solid #e6e2e2;
+    /* background: #f1f0f0; */
+    padding: 40rpx 0;
+    height: 100vh;
+}
+
+.intro-container,
+.contact-container {
+    padding-left: 20rpx;
+    margin-bottom: 40rpx;
+}
+
+.contact-container {
+    padding-top: 20rpx;
+    border-top: 1px solid #e6e2e2;
+}
+
+.content {
+    /* background: #fff; */
+    text-indent: 38rpx;
+    border-radius: 2px;
+    font-size: 28rpx;
+    line-height: 45rpx;
+}
+
+.contact-container .item {
+    margin-bottom: 30rpx;
+}
+
+.contact-container .item {
+    display: flex;
+}
+
+.contact-container .item .icon {
+    width: 50rpx;
+    height: 50rpx;
+    margin-right: 10rpx;
+}
+
+.contact-container .item .value {
+    text-decoration: underline;
+    color: #0003ff;
+}
+
+.contact-container .item text::before {
+    content: ':';
+    display: inline-block;
+    color: #444;
+    text-decoration: none;
+    margin-right: 10rpx;
+}

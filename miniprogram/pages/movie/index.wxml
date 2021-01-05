@@ -5,7 +5,7 @@
     <v-episode class="episode" />
     <!-- like -->
     <view class="like_container">
-      <v-like class="like" like="{{moviedetail.like}}" count="{{moviedetail.count}}" isLoadData="{{isLoadData}}" bind:postLike="onPostLike" bind:onLogin="OnLogin" />
+      <v-like class="like" like="{{moviedetail.infor[0].like.like_statu}}" count="{{moviedetail.infor[0].like.like_count}}" isLoadData="{{isLoadData}}" bind:postLike="onPostLike" bind:onLogin="OnLogin" />
       <!-- 分享按钮 -->
       <v-share-button open-type="share" class="share-btn">
         <image slot="img" class="share" src="/images/share.png" />

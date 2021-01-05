@@ -1,0 +1,4 @@
+<!-- components/loadMore/index.wxml -->
+<view class="load-contianer" bind:tap="onLoading">
+  <button class="load" loading="{{loading}}" plain="{{true}}">加载更多</button>
+</view>

@@ -11,7 +11,7 @@
   <view class="about-container">
     <!-- <button open-type="getUserInfo" bind:getuserinfo="onGetUserInfo">授权</button> -->
     <view class="about item">
-      <image bind:tap="onAbout" src="/images/about.png" />
+      <image bind:tap="goToAbout" src="/images/about.png" />
       <text>关于程序</text>
     </view>
     <view class="share item">
@@ -28,6 +28,9 @@
     <view class="list-container" wx:else>
       <block wx:for="{{collections}}" wx:key="id">
         <v-collection infor="{{item}}" />
+      </block>
+      <block wx:if="{{isMore}}">
+        <v-load-more loading="{{loading}}" bind:onLoading="onLoading" />
       </block>
     </view>
   </view>

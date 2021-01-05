@@ -28,7 +28,7 @@ Page({
     onPostLike(e) {
         const { like, count } = e.detail
         const id = this.data.details.id
-        this.postLike(id, like, count, "updateMovieLike")
+        this.postLike(id, like, count)
         this.postCollect(like, id)
 
         // 更新数据库

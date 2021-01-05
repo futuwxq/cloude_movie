@@ -41,11 +41,11 @@ module.exports = Behavior({
         /**
          * 上传用户喜欢的状态和数量
          */
-        postLike(id, like, count, name) {
+        postLike(id, like, count) {
             // 更新数据库
             wx.cloud.callFunction({
                 // 云函数名称
-                name,
+                name: 'updateMovieLike',
                 // 传给云函数的参数 
                 data: {
                     count,
@@ -61,11 +61,7 @@ module.exports = Behavior({
          */
         postCollect(like, id) {
             //  推荐电影的 id 都是 4位数
-            if (id.length === 4) {
-                this.updateRecomCollect(like, id)
-            } else {
-                this.updateCollect(like, id)
-            }
+            this.updateCollect(like, id)
 
         },
         /**
@@ -74,19 +70,19 @@ module.exports = Behavior({
          * @param {*} id 
          * 更新推荐电影的喜欢状态
          */
-        updateRecomCollect(like, id) {
-            console.log("updateRecomCollect");
-            wx.cloud.callFunction({
-                name: 'updateRecomCollect',
-                data: {
-                    like,
-                    id,
-                }
-            }).then((res) => {
-                console.log(res)
-            })
+        // updateRecomCollect(like, id) {
+        //     console.log("updateRecomCollect");
+        //     wx.cloud.callFunction({
+        //         name: 'updateRecomCollect',
+        //         data: {
+        //             like,
+        //             id,
+        //         }
+        //     }).then((res) => {
+        //         console.log(res)
+        //     })
 
-        },
+        // },
         /**
          * 
          * @param {*} like 
