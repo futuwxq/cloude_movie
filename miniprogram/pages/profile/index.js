@@ -29,6 +29,11 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
+        // wx.cloud.callFunction({
+        //     name: 'getUserById'
+        // }).then(res => {
+        //     console.log(res);
+        // })
         // console.log('onUnload');
         // this._userAuthorized()
         // this._getCollection()
@@ -42,7 +47,9 @@ Page({
     onShow: function() {
         console.log('onShow');
         this._userAuthorized()
-        this._getCollection()
+        if (this.data.authorized) {
+            this._getCollection()
+        }
     },
     /**
      * 生命周期函数--监听页面卸载
@@ -63,7 +70,14 @@ Page({
                 })
                 // 上传用户的信息
             const nickName = userInfo.nickName
-            userAuthorizedModel.saveUser(nickName)
+            userAuthorizedModel.getUser().then(res => {
+                if (res) { // 没有注册
+                    userAuthorizedModel.saveUser(nickName)
+                        // 注册收藏夹
+                    userAuthorizedModel.buildCollect()
+                        // this._getCollection()
+                }
+            })
         }
     },
     /**

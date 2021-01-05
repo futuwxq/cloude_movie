@@ -15,8 +15,10 @@
       <text>关于程序</text>
     </view>
     <view class="share item">
-      <image src="/images/share_.png" />
-      <text>分享好物</text>
+      <v-share-button open-type="share" class="share-btn">
+        <image slot="img" src="/images/share.png" />
+        <text slot="text" class="text">分享好物</text>
+      </v-share-button>
     </view>
   </view>
   <view class="collect-container">

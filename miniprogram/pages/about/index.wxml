@@ -3,8 +3,9 @@
   <view class="intro-container">
     <view class="title">程序介绍</view>
     <view class="content">
-      <view class="para">本程序由原生小程序开发,数据存储通过小程序云开发实现,不定期更新电影数据。</view>
-      <view class="para">该程序的页面逻辑代码由本人独立完成，如果出现问题，请及时反馈，万分谢谢！</view>
+      <view class="para">本程序由原生小程序开发,数据存储以及数据的增删查该通过小程序云开发技术实现。</view>
+      <view class="para">电影小站设计的初衷是为了分享更多精彩影片，电影数据爬取于豆瓣，之后会不定期更新电影数据。</view>
+      <view class="para">页面逻辑代码由本人独立完成，如果出现问题，请及时反馈，万分谢谢！</view>
     </view>
   </view>
   <view class="contact-container">

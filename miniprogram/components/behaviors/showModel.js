@@ -20,10 +20,11 @@ module.exports = Behavior({
         LoginSuccess() {
             // 收起登录框
             this.setData({
-                modalShow: false,
-                isLoadData: true
-            })
-            this.buildCollect()
+                    modalShow: false,
+                    isLoadData: true
+                })
+                // 创建收藏表
+                // this.buildCollect()
         },
         /**
          * 授权失败
@@ -105,13 +106,13 @@ module.exports = Behavior({
          * 
          * 新建用户收藏表
          */
-        buildCollect() {
-            wx.cloud.callFunction({
-                name: 'initCollectMovie',
-            }).then((res) => {
-                console.log(res)
-            })
-        },
+        // buildCollect() {
+        //     wx.cloud.callFunction({
+        //         name: 'initCollectMovie',
+        //     }).then((res) => {
+        //         console.log(res)
+        //     })
+        // },
         _isModalShow() {
             // 判断用户授权是否弹出授权框
             wx.getSetting({

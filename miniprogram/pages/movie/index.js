@@ -38,8 +38,8 @@ Page({
         this.postCollect(like, id)
             // 改变全局变量movieLike的值
 
-        app.globalData.movieLike = random(16)
-        console.log(app.globalData.movieLike);
+        // app.globalData.movieLike = random(16)
+        // console.log(app.globalData.movieLike);
 
     },
     /**

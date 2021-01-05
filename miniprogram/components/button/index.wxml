@@ -1,6 +1,4 @@
-<button bindgetuserinfo="onGetUserInfo" 
-    open-type='{{openType}}'  plain='{{true}}'
-     class="container">
+<button bindgetuserinfo="onGetUserInfo" open-type='{{openType}}' plain='{{true}}' class="button-container">
   <slot name="img"></slot>
+  <slot name="text"></slot>
 </button>
-                                                  

@@ -10,7 +10,6 @@ exports.main = async (event, context) => {
   return db.collection('collectmovie').add({
     data:{
       openid:wxContext.OPENID,
-      recomovieid:[],
       movieid:[]
     }
   })

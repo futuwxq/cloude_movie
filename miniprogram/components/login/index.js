@@ -24,8 +24,16 @@ Component({
             if (userInfo) {
                 const nickName = userInfo.nickName
                 this.triggerEvent('loginsuccess', userInfo, {})
-                    // 上传用户的信息 
-                userAuthorizedModel.saveUser(nickName)
+                    // 创建用户表
+                userAuthorizedModel.getUser().then(res => {
+                        if (res) {
+                            // 没有注册 注册用户表
+                            userAuthorizedModel.saveUser(nickName)
+                                // 注册收藏夹
+                            userAuthorizedModel.buildCollect()
+                        }
+                    })
+                    // userAuthorizedModel.saveUser(nickName)
             } else {
                 this.triggerEvent('loginfail', {}, {})
             }

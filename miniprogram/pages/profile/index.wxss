@@ -26,7 +26,7 @@ view.avatar-container {
 .about-container {
     margin-top: 130rpx;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     padding-bottom: 20rpx;
     border-bottom: 1px solid #e6e2e2;
 }
@@ -41,6 +41,20 @@ view.avatar-container {
     flex: 1;
     flex-direction: column;
     align-items: center;
+    font-size: 23rpx;
+    color: var(--themeColor);
+}
+
+.about-container v-share-button {
+    /* display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center; */
+}
+
+.about-container .share .share-btn image {}
+
+.about-container .share .share-btn .text {
     font-size: 23rpx;
     color: var(--themeColor);
 }

@@ -1,29 +1,39 @@
 /* miniprogram/pages/about/index.wxss */
 
 .container {
-    border-top: 1px solid #e6e2e2;
-    /* background: #f1f0f0; */
+    /* border-top: 1px solid #e6e2e2; */
+    background: #f1f0f0;
     padding: 40rpx 0;
     height: 100vh;
 }
 
+.title {
+    line-height: 40rpx;
+}
+
 .intro-container,
 .contact-container {
-    padding-left: 20rpx;
+    padding: 0 20rpx;
     margin-bottom: 40rpx;
 }
 
 .contact-container {
     padding-top: 20rpx;
-    border-top: 1px solid #e6e2e2;
+    /* border-top: 1px solid #e6e2e2; */
 }
 
 .content {
-    /* background: #fff; */
-    text-indent: 38rpx;
-    border-radius: 2px;
+    border-radius: 4px;
+    margin-top: 20rpx;
+    background: #fff;
+    padding: 20rpx
+}
+
+.content .para {
     font-size: 28rpx;
     line-height: 45rpx;
+    text-indent: 38rpx;
+    margin-bottom: 20rpx;
 }
 
 .contact-container .item {

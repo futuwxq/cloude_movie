@@ -2,6 +2,7 @@
     "usingComponents": {
         "v-login-button": "/components/button/index",
         "v-collection": "/components/collection/index",
-        "v-load-more": "/components/loadMore/index"
+        "v-load-more": "/components/loadMore/index",
+        "v-share-button": "/components/button/index"
     }
 }
