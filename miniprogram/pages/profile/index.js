@@ -74,7 +74,7 @@ Page({
                 if (res) { // 没有注册
                     userAuthorizedModel.saveUser(nickName)
                         // 注册收藏夹
-                    userAuthorizedModel.buildCollect()
+                        // userAuthorizedModel.buildCollect()
                         // this._getCollection()
                 }
             })

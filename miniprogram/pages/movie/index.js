@@ -4,10 +4,8 @@
 // } from "../../components/behaviors/showModel.js"
 const app = getApp(); //写在页面顶部page()外
 const showModelBev = require('../../components/behaviors/showModel.js')
-    // const random = require('../../utils/random.js')
-import {
-    random
-} from '../../utils/random.js'
+import { MovieModel } from '../../models/movie';
+const movieModel = new MovieModel()
 Page({
     behaviors: [showModelBev],
     /**
@@ -35,7 +33,7 @@ Page({
         const { like, count } = e.detail
         const id = this.data.moviedetail.id
         this.postLike(id, like, count)
-        this.postCollect(like, id)
+        this.updateCollect(like, id)
             // 改变全局变量movieLike的值
 
         // app.globalData.movieLike = random(16)
@@ -122,17 +120,27 @@ Page({
      * 获取影片数据
      */
     _getOneMovie() {
-        // 获取推荐页的数据
-        wx.cloud.callFunction({
-            name: 'getRecommendMovie'
-        }).then((res) => {
-            // console.log(res.result.list)
-            this.setData({
-                    moviedetail: res.result.list[0]
-                })
-                // 已经请求数据，停止显示图标
-            wx.hideLoading()
-        })
+
+        // 获取电影列表的数据
+        movieModel.getOneMovie().then(res => {
+                console.log(res);
+                this.setData({
+                        moviedetail: res[0]
+                    })
+                    // 已经请求数据，停止显示图标
+                wx.hideLoading()
+            })
+            // 获取推荐页的数据
+            // wx.cloud.callFunction({
+            //     name: 'getRecommendMovie'
+            // }).then((res) => {
+            //     // console.log(res.result.list)
+            //     this.setData({
+            //             moviedetail: res.result.list[0]
+            //         })
+            //         // 已经请求数据，停止显示图标
+            //     wx.hideLoading()
+            // })
     },
     // _isModalShow() {
     //     // 判断用户授权是否弹出授权框

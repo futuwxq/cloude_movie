@@ -15,8 +15,9 @@ Component({
     methods: {
         onMovieDetail(e) {
             const id = this.properties.movieitem.id
+            const like = this.properties.movieitem.like_statu
             wx.navigateTo({
-                url: `/pages/movie-detail/index?id=${id}`
+                url: `/pages/movie-detail/index?id=${id}&like=${like}`
             })
         }
     }

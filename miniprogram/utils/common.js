@@ -9,6 +9,10 @@ const random = function generateMixed(n) {
     return res;
 }
 
+let strToBool = function exchange(str) {
+    return str === 'true';
+}
 
 
-export { random }
+
+export { random, strToBool }

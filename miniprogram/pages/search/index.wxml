@@ -11,7 +11,7 @@
       <text>/ 精选 /</text>
     </view> -->
     <view class="movie-list">
-      <block wx:for="{{movies}}" wx:key="_id">
+      <block wx:for="{{movies}}" wx:key="title">
         <v-movie-item movieitem="{{item}}" />
       </block>
     </view>

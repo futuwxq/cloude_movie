@@ -1,6 +1,7 @@
 class MovieModel {
     collections = []
     maxCOUNT = 6
+    like_statu = false
         /**
          * 获取电影收藏夹
          */
@@ -30,7 +31,47 @@ class MovieModel {
          * 是否需要再加载数据
          */
     getCollectionLen(index = 1) {
-        return this.collections.length > index * this.maxCOUNT
+            return this.collections.length > index * this.maxCOUNT
+        }
+        /**
+         * 获取电影列表
+         * 
+         */
+    async getMovieList(start) {
+            const res = await wx.cloud.callFunction({
+                name: 'getMovieList',
+                data: {
+                    start,
+                }
+            })
+            const result = res.result.list
+            result.forEach(element => {
+                if (element.infor.length === 0) {
+                    element['like_statu'] = false
+
+                } else {
+                    element['like_statu'] = true
+                }
+            });
+            return result
+        }
+        /**
+         * 获取海报电影数据
+         * @param {*} start 
+         */
+    async getOneMovie(start) {
+        const res = await wx.cloud.callFunction({
+            name: 'getRecommendMovie',
+        })
+        const result = res.result.list
+        result.forEach(element => {
+            if (element.infor.length === 0) {
+                element['like_statu'] = false
+            } else {
+                element['like_statu'] = true
+            }
+        });
+        return result
     }
 
 }

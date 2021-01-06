@@ -30,7 +30,7 @@ Component({
                             // 没有注册 注册用户表
                             userAuthorizedModel.saveUser(nickName)
                                 // 注册收藏夹
-                            userAuthorizedModel.buildCollect()
+                                // userAuthorizedModel.buildCollect()
                         }
                     })
                     // userAuthorizedModel.saveUser(nickName)

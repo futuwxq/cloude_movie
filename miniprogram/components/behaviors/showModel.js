@@ -60,42 +60,45 @@ module.exports = Behavior({
         /**
          * 上传用户喜欢的电影
          */
-        postCollect(like, id) {
-            //  推荐电影的 id 都是 4位数
-            this.updateCollect(like, id)
-
-        },
-        /**
-         * 
-         * @param {*} like 
-         * @param {*} id 
-         * 更新推荐电影的喜欢状态
-         */
-        // updateRecomCollect(like, id) {
-        //     console.log("updateRecomCollect");
-        //     wx.cloud.callFunction({
-        //         name: 'updateRecomCollect',
-        //         data: {
-        //             like,
-        //             id,
-        //         }
-        //     }).then((res) => {
-        //         console.log(res)
-        //     })
+        // postCollect(like, id) {
+        //     //  推荐电影的 id 都是 4位数
+        //     this.updateCollect(like, id)
 
         // },
         /**
          * 
          * @param {*} like 
          * @param {*} id 
-         * 更新其他电影的喜欢状态
+         * 更新用户收藏表的信息
          */
         updateCollect(like, id) {
-            console.log("updateCollectMovie");
+            if (like) this.addCollect(id)
+            else this.removeCollect(id)
+
+        },
+        /**
+         * 增加收藏电影
+         */
+        addCollect(id) {
+            console.log('addCollect');
+
             wx.cloud.callFunction({
-                name: 'updateCollectMovie',
+                name: 'addCollect',
                 data: {
-                    like,
+                    id,
+                }
+            }).then((res) => {
+                console.log(res)
+            })
+        },
+        /**
+         * 删除收藏电影
+         */
+        removeCollect(id) {
+            console.log('removeCollect');
+            wx.cloud.callFunction({
+                name: 'removeCollect',
+                data: {
                     id,
                 }
             }).then((res) => {

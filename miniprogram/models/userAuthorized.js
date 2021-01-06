@@ -51,13 +51,13 @@ class UserAuthorizedModel {
          * 
          * 新建用户收藏表
          */
-    buildCollect() {
-        wx.cloud.callFunction({
-            name: 'initCollectMovie',
-        }).then((res) => {
-            console.log(res)
-        })
-    }
+        // buildCollect() {
+        //     wx.cloud.callFunction({
+        //         name: 'initCollectMovie',
+        //     }).then((res) => {
+        //         console.log(res)
+        //     })
+        // }
 }
 
 export { UserAuthorizedModel }

@@ -1,4 +1,6 @@
 // pages/search/index.js
+import { MovieModel } from '../../models/movie';
+const movieModel = new MovieModel()
 Page({
 
     /**
@@ -19,19 +21,27 @@ Page({
                 title: '加载中',
             })
             // 获取电影列表的数据
-        wx.cloud.callFunction({
-            name: 'getMovieList',
-            data: {
-                start: 0
-            }
-        }).then((res) => {
-            // console.log(res.result.data)
-            this.setData({
-                    movies: res.result.data
-                })
-                // 已经请求数据，停止显示图标
-            wx.hideLoading()
-        })
+
+        movieModel.getMovieList(0).then(res => {
+                this.setData({
+                        movies: res
+                    })
+                    // 已经请求数据，停止显示图标
+                wx.hideLoading()
+            })
+            // wx.cloud.callFunction({
+            //     name: 'getMovieList',
+            //     data: {
+            //         start: 0
+            //     }
+            // }).then((res) => {
+            //     // console.log(res.result.data)
+            //     this.setData({
+            //             movies: res.result.data
+            //         })
+            //         // 已经请求数据，停止显示图标
+            //     wx.hideLoading()
+            // })
 
     },
 

@@ -1,5 +1,6 @@
 // miniprogram/pages/movie-detail/index.js
 var showModelBev = require('../../components/behaviors/showModel.js')
+import strToBool from '../../utils/common.js';
 Page({
     behaviors: [showModelBev],
 
@@ -8,6 +9,7 @@ Page({
      */
     data: {
         details: {},
+        _like: false
     },
 
     /**
@@ -18,7 +20,18 @@ Page({
         wx.showLoading({
             title: '加载中',
         })
-        let id = options.id
+        let { id, like } = options
+        if (like === "true") {
+            like = true
+        } else {
+            like = false
+        }
+        // console.log(strToBool(like));
+        this.setData({
+            // _like: strToBool(like)
+            _like: like
+        })
+        console.log(this.data._like);
         this._getMovieDetail(id)
     },
     /**
@@ -26,10 +39,10 @@ Page({
      * 提交like状态
      */
     onPostLike(e) {
-        const { like, count } = e.detail
-        const id = this.data.details.id
-        this.postLike(id, like, count)
-        this.postCollect(like, id)
+        // const { like, count } = e.detail
+        // const id = this.data.details.id
+        // this.postLike(id, like, count)
+        // this.updateCollect(like, id)
 
         // 更新数据库
         // wx.cloud.callFunction({
@@ -57,8 +70,8 @@ Page({
                 id
             },
         }).then(res => {
-                // console.log(res.result.data[0].id)
-                let result = res.result.data[0]
+                console.log(res.result.data[0])
+                const result = res.result.data[0]
                 this.setData({
                         details: result
                     })
