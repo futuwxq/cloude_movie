@@ -2,6 +2,8 @@
 // import { UserAuthorizedModel } from "../../models/userAuthorized"
 
 // const userAuthorizedModel = new UserAuthorizedModel()
+const app = getApp(); //写在页面顶部page()外
+
 Component({
     /**
      * 组件的属性列表
@@ -43,6 +45,7 @@ Component({
             if (this.properties.readOnly) {
                 return
             }
+            app.globalData.collectChange = true
             this.getUserAuthorized()
         },
         /**

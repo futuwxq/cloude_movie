@@ -1,7 +1,7 @@
 //app.js
 App({
     globalData: {
-        movieLike: null,
+        collectChange: false,
     },
     onLaunch: function() {
         if (!wx.cloud) {

@@ -1,5 +1,5 @@
 // pages/profile/index.js
-// const app = getApp(); //写在页面顶部page()外
+const app = getApp(); //写在页面顶部page()外
 import { UserAuthorizedModel } from '../../models/userAuthorized';
 import { MovieModel } from '../../models/movie';
 const userAuthorizedModel = new UserAuthorizedModel()
@@ -15,7 +15,7 @@ Page({
         collections: [],
         loading: false,
         isMore: false,
-        currentCollection: [],
+        // currentCollection: [],
         index: 1
     },
     // observers: {
@@ -29,17 +29,18 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-        // this._userAuthorized()
-        // this._getCollection()
-        // wx.cloud.callFunction({
-        //     name: 'getUserById'
-        // }).then(res => {
-        //     console.log(res);
-        // })
-        // console.log('onUnload');
-        // this._userAuthorized()
-        // this._getCollection()
-        // console.log(app.globalData.movieLike);
+        this._userAuthorized()
+            // this._userAuthorized()
+            // this._getCollection()
+            // wx.cloud.callFunction({
+            //     name: 'getUserById'
+            // }).then(res => {
+            //     console.log(res);
+            // })
+            // console.log('onUnload');
+            // this._userAuthorized()
+            // this._getCollection()
+            // console.log(app.globalData.movieLike);
 
 
     },
@@ -48,10 +49,17 @@ Page({
      */
     onShow: function() {
         console.log('onShow');
-        this._userAuthorized()
-        if (this.data.authorized) {
-            this._getCollection()
+        if (!this.data.authorized) {
+            this._userAuthorized()
         }
+        console.log(app.globalData.collectChange);
+
+        if (app.globalData.collectChange) {
+            this._getCollection()
+
+        }
+
+
     },
     /**
      * 生命周期函数--监听页面卸载
