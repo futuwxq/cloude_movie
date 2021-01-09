@@ -46,7 +46,7 @@
       </view>
     </view>
     <view class="bottom-bar">
-      <v-like class="like" like="{{_like}}" count="{{details.like_count}}" isLoadData="{{isLoadData}}" bind:postLike="onPostLike" bind:onLogin="OnLogin" />
+      <v-like class="like" like="{{like}}" count="{{details.like_count}}" isLoadData="{{isLoadData}}" bind:postLike="onPostLike" bind:onLogin="OnLogin" />
       <v-share-button open-type="share" class="share-btn">
         <image slot="img" class="share" src="/images/share.png" />
       </v-share-button>

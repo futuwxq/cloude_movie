@@ -1,6 +1,8 @@
 // miniprogram/pages/movie-detail/index.js
-var showModelBev = require('../../components/behaviors/showModel.js')
+const showModelBev = require('../../components/behaviors/showModel.js')
 import strToBool from '../../utils/common.js';
+import { MovieModel } from '../../models/movie';
+const movieModel = new MovieModel()
 Page({
     behaviors: [showModelBev],
 
@@ -9,7 +11,7 @@ Page({
      */
     data: {
         details: {},
-        _like: false
+        like: null
     },
 
     /**
@@ -20,25 +22,34 @@ Page({
         wx.showLoading({
             title: '加载中',
         })
-        let { id, like } = options
-        if (like === "true") {
-            like = true
-        } else {
-            like = false
-        }
+        const { id } = options
+        // if (like === "true") {
+        //     like = true
+        // } else {
+        //     like = false
+        // }
         // console.log(strToBool(like));
-        this.setData({
-            // _like: strToBool(like)
-            _like: like
-        })
-        console.log(this.data._like);
+        // this.setData({
+        //     like,
+        // })
         this._getMovieDetail(id)
+        this._getFavor(id)
+        wx.hideLoading()
+
+
     },
     /**
      * 
      * 提交like状态
      */
     onPostLike(e) {
+        const { like, count } = e.detail
+        const id = this.data.details.id
+            // 上传数据 like的数量
+        this.postLike(id, count)
+            // 更新收藏夹 移除或者添加
+        this.updateCollect(like, id)
+
         // const { like, count } = e.detail
         // const id = this.data.details.id
         // this.postLike(id, like, count)
@@ -64,21 +75,26 @@ Page({
      */
     _getMovieDetail(id) {
         // 发起详细数据的请求
-        wx.cloud.callFunction({
-            name: 'getMovieById',
-            data: {
-                id
-            },
-        }).then(res => {
-                console.log(res.result.data[0])
-                const result = res.result.data[0]
+        movieModel.getMovieById(id).then(res => {
+                // console.log(res.result.data[0])
+                // const result = res.result.data[0]
                 this.setData({
-                        details: result
-                    })
-                    // 已经请求数据，停止显示图标
-                wx.hideLoading()
+                    details: res
+                })
             }
 
         )
     },
+    /**
+     * 获取电影的喜欢状态
+     */
+    _getFavor(id) {
+        console.log(id);
+        movieModel.iscollectByID(id).then(res => {
+            console.log(res);
+            this.setData({
+                like: res
+            })
+        })
+    }
 })

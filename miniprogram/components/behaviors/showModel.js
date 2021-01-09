@@ -40,17 +40,17 @@ module.exports = Behavior({
             })
         },
         /**
-         * 上传用户喜欢的状态和数量
+         * 上传用户喜欢的数量
          */
-        postLike(id, like, count) {
+        postLike(id, count) {
             // 更新数据库
             wx.cloud.callFunction({
                 // 云函数名称
-                name: 'updateMovieLike',
+                name: 'updateMovieLikeCount',
                 // 传给云函数的参数 
                 data: {
                     count,
-                    like,
+                    // like,
                     id
                 }
             }).then((res) => {
@@ -69,7 +69,7 @@ module.exports = Behavior({
          * 
          * @param {*} like 
          * @param {*} id 
-         * 更新用户收藏表的信息
+         * 更新用户收藏表的信息,同时也是对用户收藏状态的更新
          */
         updateCollect(like, id) {
             if (like) this.addCollect(id)
@@ -86,6 +86,7 @@ module.exports = Behavior({
                 name: 'addCollect',
                 data: {
                     id,
+                    _date: new Date(),
                 }
             }).then((res) => {
                 console.log(res)
@@ -122,14 +123,24 @@ module.exports = Behavior({
                 success: (res) => {
                     console.log(res)
                     if (!res.authSetting['scope.userInfo']) {
-                        this.setData({
-                            modalShow: false,
-                        })
+                        this._offModel()
                     }
                 }
             })
         },
+        /**
+         * 显示授权按钮
+         */
         _showModel() {
+            this.setData({
+                modalShow: true
+            })
+
+        },
+        /**
+         * 关闭授权按钮
+         */
+        _offModel() {
             this.setData({
                 modalShow: true
             })

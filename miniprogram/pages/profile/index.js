@@ -29,6 +29,8 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
+        // this._userAuthorized()
+        // this._getCollection()
         // wx.cloud.callFunction({
         //     name: 'getUserById'
         // }).then(res => {
@@ -107,7 +109,7 @@ Page({
             title: '加载中',
         })
         movieModel.getCollection(index).then(res => {
-            console.log(res);
+            // console.log(res);
 
             this.setData({
                 collections: res
@@ -127,6 +129,7 @@ Page({
     _userAuthorized() {
         userAuthorizedModel.userAuthorized().then(res => {
                 if (res) {
+                    this._getCollection()
                     this._changeAuthorized()
                     return userAuthorizedModel.getUserInfor()
                 }

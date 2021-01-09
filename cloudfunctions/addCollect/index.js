@@ -8,16 +8,17 @@ const _ = db.command
 // 云函数入口函数
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
-  const like = event.like
+  // const like = event.like
   // const like = false
   // const  movieid = "1001"
   const  movie_id = event.id 
+  const _date = event._date
   // if(like) {
     return db.collection('collectmovie').add({
       data:{
         openid:wxContext.OPENID,
         movieid:movie_id,
-        _data:new Date()
+        _date,
       }
     })
     // return db.collection('collectmovie').where({

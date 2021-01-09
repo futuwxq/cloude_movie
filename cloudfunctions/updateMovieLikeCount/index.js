@@ -8,9 +8,8 @@ const db = cloud.database()
  
 // 云函数入口函数
 exports.main = async (event, context) => {
-  let like = event.like
-  let count = event.count
-  let id = event.id
+  const count = event.count
+  const id = event.id
   try {
     return await db.collection('movielist')
     .where({
@@ -18,8 +17,8 @@ exports.main = async (event, context) => {
     }).update({
       // data 传入需要局部更新的数据
       data: {
-        'like.like_count':count,
-        'like.like_statu':like
+        like_count:count,
+        // 'like.like_statu':like
       }
     })
   } catch (e) {

@@ -13,7 +13,8 @@ Page({
      */
     data: {
         moviedetail: {},
-        // modalShow: false
+        like: false
+            // modalShow: false
     },
     /**
      * 生命周期函数--监听页面加载
@@ -32,7 +33,9 @@ Page({
     onPostLike(e) {
         const { like, count } = e.detail
         const id = this.data.moviedetail.id
-        this.postLike(id, like, count)
+            // 上传数据 like的数量
+        this.postLike(id, count)
+            // 更新收藏夹 移除或者添加
         this.updateCollect(like, id)
             // 改变全局变量movieLike的值
 
@@ -123,24 +126,35 @@ Page({
 
         // 获取电影列表的数据
         movieModel.getOneMovie().then(res => {
-                console.log(res);
-                this.setData({
-                        moviedetail: res[0]
-                    })
-                    // 已经请求数据，停止显示图标
-                wx.hideLoading()
+            // console.log(res);
+            this.setData({
+                moviedetail: res[0]
             })
-            // 获取推荐页的数据
-            // wx.cloud.callFunction({
-            //     name: 'getRecommendMovie'
-            // }).then((res) => {
-            //     // console.log(res.result.list)
-            //     this.setData({
-            //             moviedetail: res.result.list[0]
-            //         })
-            //         // 已经请求数据，停止显示图标
-            //     wx.hideLoading()
-            // })
+            const id = this.data.moviedetail.id
+            console.log(id);
+
+            // 已经请求数据，停止显示图标
+            // 获取喜欢状态
+            return movieModel.iscollectByID(id)
+        }).then(res => {
+            this.setData({
+                like: res
+            })
+            wx.hideLoading()
+        })
+
+
+        // 获取推荐页的数据
+        // wx.cloud.callFunction({
+        //     name: 'getRecommendMovie'
+        // }).then((res) => {
+        //     // console.log(res.result.list)
+        //     this.setData({
+        //             moviedetail: res.result.list[0]
+        //         })
+        //         // 已经请求数据，停止显示图标
+        //     wx.hideLoading()
+        // })
     },
     // _isModalShow() {
     //     // 判断用户授权是否弹出授权框

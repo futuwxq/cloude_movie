@@ -7,28 +7,21 @@ const db = cloud.database()
 
 // 云函数入口函数
 exports.main = async (event, context) => {
-  return db.collection('onemovie').aggregate().lookup({
-    from:'collectmovie',
-    localField:'id',
-    foreignField:'movieid',
-    as:'infor',
-}).lookup({
+  const wxContext = cloud.getWXContext()
+
+  return db.collection('onemovie').aggregate().lookup({             
   from:'movielist',
   localField:'id',
   foreignField:'id',
-  as:'infor1',
+  as:'infor',
 }).project({
-  id:1,
+  id:1, 
   poster:1,
   quotations:1,
   title:1,
-  infor:1,
-  'infor1.like_count':1
-})
-.end()
-
-
-
+  'infor.like_count':1
+}).end()
+}
 // return  db.collection('onemovie').aggregate().lookup({
 //         from:'movielist',
 //         localField:'id',
@@ -42,4 +35,3 @@ exports.main = async (event, context) => {
 //         'infor.like':1,
 
 //       }).end()
-}

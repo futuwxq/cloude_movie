@@ -51,6 +51,16 @@ Component({
          *  1.1 未授权向 movie 组件发起事件
          *  1.2 已经授权 调用上传数据函数
          */
+        async getUserAuthorized() {
+            const setting = await this.getSetting()
+            if (setting['scope.userInfo']) {
+                console.log("已经授权");
+                this.postLikeData()
+            } else {
+                //未授权 需要弹起登录框
+                this.triggerEvent('onLogin', {}, {})
+            }
+        },
         getSetting() {
             return new Promise((resolve, reject) => {
                 wx.getSetting({
@@ -65,21 +75,11 @@ Component({
                 })
             })
         },
-        async getUserAuthorized() {
-            const setting = await this.getSetting()
-            if (setting['scope.userInfo']) {
-                console.log("已经授权");
-                this.postLikeData()
-            } else {
-                //未授权 需要弹起登录框
-                this.triggerEvent('onLogin', {}, {})
-            }
-        },
         /**
-         * 上传like状态和数量
+         * 上传like数量
          */
         postLikeData() {
-            let like = this.properties.like
+            const like = this.properties.like
             let count = this.properties.count
             count = like ? count - 1 : count + 1
             this.setData({
