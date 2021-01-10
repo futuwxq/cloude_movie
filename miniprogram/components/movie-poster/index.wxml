@@ -1,6 +1,6 @@
 <!-- components/movie/index.wxml -->
 <view class="container">
-  <image src="{{item.poster}}" class="move-cover" />
+  <image src="{{item.poster}}" class="move-cover" data-id="{{item.id}}" bind:tap="goToDetail" />
   <view class="word-detail">
     <!-- <view class="upline"></view>
     <view class="downline"></view> -->
