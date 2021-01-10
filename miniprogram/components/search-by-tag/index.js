@@ -52,12 +52,13 @@ Component({
             if (keywords) {
                 // 获取推荐页的数据              
                 wx.cloud.callFunction({
-                        name: '      ',
+                        name: 'getMovieByName',
                         data: {
                             title: keywords
                         }
                     }).then((res) => {
                         const result = res.result.data;
+                        console.log(result);
                         this.setData({
                             noResult: result.length === 0 ? true : false,
                             researchRes: result,
