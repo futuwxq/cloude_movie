@@ -1,40 +1,45 @@
 /* components/movie/index.wxss */
-.container {
 
-}
-.move-cover{
-  width: 100%;
+.container {}
+
+.move-cover {
+    width: 100%;
 }
 
 .word-detail {
-  padding: 70rpx 60rpx;
-  line-height: 60rpx;
-  /* text-align: center; */
-  position: relative;
-  overflow: hidden;
+    padding: 60rpx;
+    line-height: 50rpx;
+    /* text-align: center; */
+    position: relative;
+    overflow: hidden;
+}
+
+.content .parp {
+    padding-bottom: 40rpx;
 }
 
 .upline {
-  position: absolute;
-  top: 57rpx;
-  left: 35rpx;
-  width: 45rpx;
-  height: 45rpx;
-  border-top:10rpx solid #655757;
-  border-left:10rpx solid #655757
+    position: absolute;
+    top: 57rpx;
+    left: 35rpx;
+    width: 45rpx;
+    height: 45rpx;
+    border-top: 10rpx solid #655757;
+    border-left: 10rpx solid #655757
 }
+
 .downline {
-  position: absolute;
-  width: 45rpx;
-  height: 45rpx;
-  right: 48rpx;
-  top: 57rpx;
-  border-top:10rpx solid #655757;
-  border-right:10rpx solid #655757;
+    position: absolute;
+    width: 45rpx;
+    height: 45rpx;
+    right: 48rpx;
+    top: 57rpx;
+    border-top: 10rpx solid #655757;
+    border-right: 10rpx solid #655757;
 }
+
 .movie-name {
-  margin-top: 2 0rpx;
-  padding-right: 
-  20rpx;
-  float: right;
+    margin-top: 2 0rpx;
+    padding-right: 20rpx;
+    float: right;
 }

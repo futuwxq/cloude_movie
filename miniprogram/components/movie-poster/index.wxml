@@ -1,13 +1,16 @@
-<!--components/movie/index.wxml-->
+<!-- components/movie/index.wxml -->
 <view class="container">
-  <image mode="widthFix" src="{{imgurl}}" class="move-cover"/>
+  <image src="{{item.poster}}" class="move-cover" />
   <view class="word-detail">
     <!-- <view class="upline"></view>
     <view class="downline"></view> -->
-    <text class="cotent">{{words}}</text>
-    <view class="movie-name">
-      <text> —— 阳光普照</text>
+    <view class="content">
+      <block wx:for="{{item.quotations}}" wx:key="*this">
+        <view class="parp">{{item}}</view>
+      </block>
     </view>
-
+    <view class="movie-name">
+      <text>—— {{item.title}}</text>
+    </view>
   </view>
 </view>

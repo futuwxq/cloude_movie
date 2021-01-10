@@ -52,7 +52,7 @@ Component({
             if (keywords) {
                 // 获取推荐页的数据              
                 wx.cloud.callFunction({
-                        name: 'getMovieByName',
+                        name: '      ',
                         data: {
                             title: keywords
                         }

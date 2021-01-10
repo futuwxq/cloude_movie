@@ -126,10 +126,12 @@ Page({
 
         // 获取电影列表的数据
         movieModel.getOneMovie().then(res => {
-            // console.log(res);
+            const week = new Date().getDay()
+                // console.log(res);
             this.setData({
-                moviedetail: res[0]
+                moviedetail: res[week]
             })
+
             const id = this.data.moviedetail.id
             console.log(id);
 
