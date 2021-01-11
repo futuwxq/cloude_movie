@@ -10,3 +10,13 @@
 
 - [云开发文档](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)
 
+## 小程序介绍
+心影小站以云开发模式打造一个云电影全栈小程序，前端部分以各种自定义组件和小程序核心组件实现，后端部分通过云开发实现，配套后台管理系统链接小程序云数据库以及云存储，实现项目数据管理（目前还未实现数据化管理）。
+
+小程序的主要功能：
+- 推荐影片
+- 搜索影片
+- 收藏影片
+
+### 小程序码如下
+![avatar](image/minprogram.jpg)
