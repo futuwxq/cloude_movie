@@ -23,8 +23,10 @@ Component({
     data: {
         searchText: '',
         researchRes: [],
+        // 搜索结果和历史搜索
         isShowResult: false,
         historyword: [],
+        // 没有搜索的结果和搜索到结果
         noResult: false
     },
     // observers: {

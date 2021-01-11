@@ -45,21 +45,31 @@ view.avatar-container {
     color: var(--themeColor);
 }
 
-.about-container v-share-button {
-    /* display: flex;
+
+/* .about-container v-share-button {
+    display: flex;
     flex: 1;
     flex-direction: column;
-    align-items: center; */
-}
+    align-items: center;
+} */
 
-.about-container .share .share-btn image {}
 
-.about-container .share .share-btn .text {
+/* .about-container .share .share-btn .text {
     font-size: 23rpx;
     color: var(--themeColor);
-}
+} */
 
 .about-container .item image {
+    width: 40rpx;
+    height: 40rpx;
+    margin-bottom: 10rpx;
+}
+
+.about-container .item .count {
+    display: inline-block;
+    line-height: 40rpx;
+    color: #000;
+    text-align: center;
     width: 40rpx;
     height: 40rpx;
     margin-bottom: 10rpx;

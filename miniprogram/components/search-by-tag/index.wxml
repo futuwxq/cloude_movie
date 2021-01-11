@@ -27,12 +27,17 @@
     </view>
   </view>
   <!-- 检索结果 -->
-  <view class="result-container" wx:if="{{isShowResult}}">
-    <scroll-view bindscrolltolower="onToBottom" scroll-x="{{true}}">
-      <block wx:for="{{researchRes}}" wx:key="{{item._id}}">
-        <v-movie-item movieitem="{{item}}" />
-      </block>
-    </scroll-view>
+  <view wx:else>
+    <view wx:if="{{!noResult}}">
+      <view class="result-container">
+        <!-- <scroll-view bindscrolltolower="onToBottom" scroll-x="{{true}}"> -->
+        <block wx:for="{{researchRes}}" wx:key="{{item.title}}">
+          <v-movie-item movieitem="{{item}}" />
+        </block>
+        <!-- </scroll-view> -->
+      </view>
+      <view class="no-more">没有更多搜索结果</view>
+    </view>
+    <view class="no-result" wx:else>没有搜索到电影</view>
   </view>
-  <view class="no-result" wx:if="{{noResult}}">没有搜索到电影</view>
 </view>

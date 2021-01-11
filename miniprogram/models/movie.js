@@ -19,12 +19,16 @@ class MovieModel {
                 // const result = res.result.list
             console.log(res);
             this.collections = res.result.list
+            const count = this.collections.length
             console.log(this.collections);
-            if (this.collections.length > index * this.maxCOUNT) {
+            if (count > index * this.maxCOUNT) {
                 return this.collections.slice(0, this.maxCOUNT * index)
 
             }
-            return this.collections
+            return {
+                collection: this.collections,
+                count,
+            }
 
         }
         /**

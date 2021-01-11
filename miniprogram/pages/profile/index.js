@@ -16,7 +16,10 @@ Page({
         loading: false,
         isMore: false,
         // currentCollection: [],
-        index: 1
+        // 加载更多收藏的轮数
+        index: 1,
+        // 商品收藏的数量
+        count: '---'
     },
     // observers: {
     //     'app.globalData.movieLike' (newval, oldVal) {
@@ -117,10 +120,11 @@ Page({
             title: '加载中',
         })
         movieModel.getCollection(index).then(res => {
-            // console.log(res);
+            console.log(res);
 
             this.setData({
-                collections: res
+                collections: res.collection,
+                count: res.count
             })
 
             if (movieModel.getCollectionLen(index)) {

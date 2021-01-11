@@ -9,7 +9,8 @@ Page({
     data: {
         isSearch: false,
         movies: [],
-        more: false
+        more: false,
+        isBottom: false
     },
 
     /**
@@ -72,10 +73,7 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function() {
-        // this.setData({
-        //     more: true
-        // })
-        // console.log(this.data.more, 1);
+
         console.log("触底");
         // 加载数据
         wx.showLoading({
@@ -90,10 +88,22 @@ Page({
             }
         }).then((res) => {
             console.log(res.result.data, "更多")
-            this.setData({
-                movies: this.data.movies.concat(res.result.data)
-            })
             wx.hideLoading()
+            if (res.result.data.length === 0) {
+                console.log(0);
+                this.setData({
+                    isBottom: true
+                })
+
+            } else {
+                console.log(1);
+
+                this.setData({
+                    movies: this.data.movies.concat(res.result.data)
+                })
+
+            }
+
         })
 
     },

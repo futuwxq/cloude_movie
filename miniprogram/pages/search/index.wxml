@@ -15,6 +15,9 @@
         <v-movie-item movieitem="{{item}}" />
       </block>
     </view>
+    <view class="bottom-bar" wx:if="{{isBottom}}">
+      <view class="word">已经到底啦</view>
+    </view>
   </view>
 </view>
 <view class="container" wx:if="{{isSearch}}">

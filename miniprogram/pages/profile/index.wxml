@@ -15,10 +15,13 @@
       <text>关于程序</text>
     </view>
     <view class="share item">
-      <v-share-button open-type="share" class="share-btn">
+      <view class="count">{{count}}</view>
+      <!-- <image bind:tap="goToAbout" src="/images/collect.png" /> -->
+      <text>商品收藏</text>
+      <!-- <v-share-button open-type="share" class="share-btn">
         <image slot="img" src="/images/share.png" />
         <text slot="text" class="text">分享好物</text>
-      </v-share-button>
+      </v-share-button> -->
     </view>
   </view>
   <view class="collect-container">

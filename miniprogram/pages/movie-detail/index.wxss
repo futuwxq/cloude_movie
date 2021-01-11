@@ -57,6 +57,10 @@
     text-indent: 30px;
 }
 
+.colum-container {
+    margin-bottom: 80rpx;
+}
+
 .bottom-bar {
     height: 80rpx;
     position: fixed;
