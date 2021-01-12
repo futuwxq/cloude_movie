@@ -19,7 +19,8 @@ Page({
         // 加载更多收藏的轮数
         index: 1,
         // 商品收藏的数量
-        count: '---'
+        count: '---',
+        isLoad: false
     },
     // observers: {
     //     'app.globalData.movieLike' (newval, oldVal) {
@@ -51,16 +52,15 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
+
         console.log('onShow');
         if (!this.data.authorized) {
             this._userAuthorized()
         }
         console.log(app.globalData.collectChange);
+        this._getCollection()
+            // app.globalData.collectChange = false
 
-        if (app.globalData.collectChange) {
-            this._getCollection()
-
-        }
 
 
     },
@@ -79,7 +79,8 @@ Page({
         if (userInfo) {
             this.setData({
                     userInfo,
-                    authorized: true
+                    authorized: true,
+                    count: 0
                 })
                 // 上传用户的信息
             const nickName = userInfo.nickName
@@ -120,7 +121,7 @@ Page({
             title: '加载中',
         })
         movieModel.getCollection(index).then(res => {
-            console.log(res);
+            // console.log(res);
 
             this.setData({
                 collections: res.collection,

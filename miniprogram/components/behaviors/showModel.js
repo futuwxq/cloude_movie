@@ -54,7 +54,7 @@ module.exports = Behavior({
                     id
                 }
             }).then((res) => {
-                console.log(res)
+                // console.log(res)
             })
         },
         /**
@@ -121,7 +121,7 @@ module.exports = Behavior({
             // 判断用户授权是否弹出授权框
             wx.getSetting({
                 success: (res) => {
-                    console.log(res)
+                    // console.log(res)
                     if (!res.authSetting['scope.userInfo']) {
                         this._offModel()
                     }

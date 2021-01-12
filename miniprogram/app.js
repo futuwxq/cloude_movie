@@ -2,6 +2,7 @@
 App({
     globalData: {
         collectChange: false,
+        detailLike:false
     },
     onLaunch: function() {
         if (!wx.cloud) {

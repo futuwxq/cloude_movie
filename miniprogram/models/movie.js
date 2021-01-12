@@ -17,10 +17,10 @@ class MovieModel {
                 // }
                 // console.log(index);
                 // const result = res.result.list
-            console.log(res);
+            // console.log(res);
             this.collections = res.result.list
             const count = this.collections.length
-            console.log(this.collections);
+            // console.log(this.collections);
             if (count > index * this.maxCOUNT) {
                 return this.collections.slice(0, this.maxCOUNT * index)
 
@@ -50,7 +50,7 @@ class MovieModel {
                     start,
                 }
             })
-            console.log(res);
+            // console.log(res);
             const result = res.result.data
                 // result.forEach(element => {
                 //     if (element.infor.length === 0) {
@@ -70,7 +70,7 @@ class MovieModel {
             const res = await wx.cloud.callFunction({
                 name: 'getRecommendMovie',
             })
-            console.log(res);
+            // console.log(res);
             const result = res.result.list
             result.forEach(element => {
                 if (element.infor.length === 0) {
@@ -92,7 +92,7 @@ class MovieModel {
                 }
             })
             const result = res.result.data
-            console.log(res);
+            // console.log(res);
             if (result.length === 0)
                 return false
             else return true

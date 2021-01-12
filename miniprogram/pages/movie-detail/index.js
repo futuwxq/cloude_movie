@@ -91,7 +91,7 @@ Page({
     _getFavor(id) {
         console.log(id);
         movieModel.iscollectByID(id).then(res => {
-            console.log(res);
+            // console.log(res);
             this.setData({
                 like: res
             })

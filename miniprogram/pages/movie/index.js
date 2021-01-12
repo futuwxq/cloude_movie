@@ -21,23 +21,39 @@ Page({
      */
     onLoad: function(options) {
         // 加载数据
+        console.log(11);
         wx.showLoading({
             title: '加载中',
         })
         this._getOneMovie()
     },
+    onShow() {
+        // console.log(options)
+        // if (app.globalData.collectChange) {
+        // console.log('11')
 
+        // wx.showLoading({
+        //     title: '加载中',
+        // })
+        this._getOneMovie()
+            // app.globalData.collectChange = false
+
+        // }
+
+    },
     /**
      * 上传用户喜欢状态和数量
      */
     onPostLike(e) {
+        console.log('click');
         const { like, count } = e.detail
         const id = this.data.moviedetail.id
             // 上传数据 like的数量
         this.postLike(id, count)
             // 更新收藏夹 移除或者添加
         this.updateCollect(like, id)
-            // 改变全局变量movieLike的值
+            //    刷新电影数据
+            // this._getOneMovie()
 
         // app.globalData.movieLike = random(16)
         // console.log(app.globalData.movieLike);
