@@ -23,11 +23,10 @@ Component({
 
     attached: function() {
         // 在组件实例进入页面节点树时执行
-        let myDate = new Date()
-        let year = myDate.getFullYear()
-        let _index = myDate.getMonth()
+        const myDate = new Date()
+        const year = myDate.getFullYear()
+        const _index = myDate.getMonth()
         let day = myDate.getDate()
-            // let day = 5
 
         this.setData({
             year,

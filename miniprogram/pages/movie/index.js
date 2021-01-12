@@ -21,7 +21,7 @@ Page({
      */
     onLoad: function(options) {
         // 加载数据
-        console.log(11);
+
         wx.showLoading({
             title: '加载中',
         })
@@ -52,12 +52,30 @@ Page({
         this.postLike(id, count)
             // 更新收藏夹 移除或者添加
         this.updateCollect(like, id)
-            //    刷新电影数据
-            // this._getOneMovie()
+        this.onShowToast(like)
+
+        //    刷新电影数据
+        // this._getOneMovie()
 
         // app.globalData.movieLike = random(16)
         // console.log(app.globalData.movieLike);
 
+    },
+    /**
+     * toast 提示信息
+     */
+    onShowToast(like) {
+        if (like) {
+            wx.showToast({
+                title: '收藏成功',
+                icon: 'none'
+            })
+        } else {
+            wx.showToast({
+                title: '取消收藏',
+                icon: 'none'
+            })
+        }
     },
     /**
      * 上传用户喜欢的状态和数量

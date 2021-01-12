@@ -117,9 +117,9 @@ Page({
         })
     },
     _getCollection(index) {
-        wx.showLoading({
-            title: '加载中',
-        })
+        // wx.showLoading({
+        //     title: '加载中',
+        // })
         movieModel.getCollection(index).then(res => {
             // console.log(res);
 
@@ -142,6 +142,9 @@ Page({
     _userAuthorized() {
         userAuthorizedModel.userAuthorized().then(res => {
                 if (res) {
+                    wx.showLoading({
+                        title: '加载中',
+                    })
                     this._getCollection()
                     this._changeAuthorized()
                     return userAuthorizedModel.getUserInfor()

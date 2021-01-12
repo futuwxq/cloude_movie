@@ -78,7 +78,7 @@ Component({
                 })
                 // const setting = await this.getSetting()
                 // if (setting['scope.userInfo']) {
-                //     // console.log("已经授权");
+                //     // console.log("已经   授权");
                 //     console.log('click');
                 //     this.postLikeData()
                 // } else {
@@ -116,24 +116,8 @@ Component({
                 like: !like,
                 count
             }, {});
-            this.onShowToast()
 
-        },
-        /**
-         * toast 提示信息
-         */
-        onShowToast() {
-            if (this.data.like) {
-                wx.showToast({
-                    title: '收藏成功',
-                    icon: 'none'
-                })
-            } else {
-                wx.showToast({
-                    title: '取消收藏',
-                    icon: 'none'
-                })
-            }
         }
+
     }
 })

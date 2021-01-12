@@ -33,16 +33,15 @@ page {
 }
 
 .episode {
+    height: 100%;
     flex: 1;
     margin-left: 20rpx;
     margin-top: 4rpx;
 }
 
-.like {
-    margin-top: 6rpx;
-}
-
 .like_container {
+    height: 100%;
+    margin-top: 8rpx;
     display: flex;
     flex: 1;
     align-items: center;
@@ -56,14 +55,18 @@ page {
 }
 
 .share-btn {
-    width: 60rpx;
-    height: 60rpx;
-    margin-top: 24rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.share {
+.share-btn .share {
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
     width: 40rpx;
     height: 40rpx;
+    vertical-align: middle;
 }
 
 .move-cover {
