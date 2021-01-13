@@ -1,5 +1,5 @@
 // pages/profile/index.js
-const app = getApp(); //写在页面顶部page()外
+// const app = getApp(); //写在页面顶部page()外
 import { UserAuthorizedModel } from '../../models/userAuthorized';
 import { MovieModel } from '../../models/movie';
 const userAuthorizedModel = new UserAuthorizedModel()
@@ -12,8 +12,9 @@ Page({
     data: {
         authorized: false,
         userInfo: null,
-        collections: [],
+        collection: [],
         loading: false,
+        // 加载按钮的显示和隐藏
         isMore: false,
         // currentCollection: [],
         // 加载更多收藏的轮数
@@ -33,18 +34,18 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-        this._userAuthorized()
-            // this._userAuthorized()
-            // this._getCollection()
-            // wx.cloud.callFunction({
-            //     name: 'getUserById'
-            // }).then(res => {
-            //     console.log(res);
-            // })
-            // console.log('onUnload');
-            // this._userAuthorized()
-            // this._getCollection()
-            // console.log(app.globalData.movieLike);
+        // this._userAuthorized()
+        // this._userAuthorized()
+        // this._getCollection()
+        // wx.cloud.callFunction({
+        //     name: 'getUserById'
+        // }).then(res => {
+        //     console.log(res);
+        // })
+        // console.log('onUnload');
+        // this._userAuthorized()
+        // this._getCollection()
+        // console.log(app.globalData.movieLike);
 
 
     },
@@ -53,12 +54,12 @@ Page({
      */
     onShow: function() {
 
+        // this._userAuthorized()
         console.log('onShow');
         if (!this.data.authorized) {
             this._userAuthorized()
         }
-        console.log(app.globalData.collectChange);
-        this._getCollection()
+        this._getCollection(this.data.index)
             // app.globalData.collectChange = false
 
 
@@ -87,9 +88,6 @@ Page({
             userAuthorizedModel.getUser().then(res => {
                 if (res) { // 没有注册
                     userAuthorizedModel.saveUser(nickName)
-                        // 注册收藏夹
-                        // userAuthorizedModel.buildCollect()
-                        // this._getCollection()
                 }
             })
         }
@@ -98,7 +96,6 @@ Page({
      * 加载更多
      */
     onLoading() {
-        // console.log(this.data.index);
         this.setData({
             loading: true
         })
@@ -121,10 +118,10 @@ Page({
         //     title: '加载中',
         // })
         movieModel.getCollection(index).then(res => {
-            // console.log(res);
+            console.log(res);
 
             this.setData({
-                collections: res.collection,
+                collection: res.collection,
                 count: res.count
             })
 
@@ -145,7 +142,6 @@ Page({
                     wx.showLoading({
                         title: '加载中',
                     })
-                    this._getCollection()
                     this._changeAuthorized()
                     return userAuthorizedModel.getUserInfor()
                 }

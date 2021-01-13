@@ -73,6 +73,7 @@ view.avatar-container {
     width: 40rpx;
     height: 40rpx;
     margin-bottom: 10rpx;
+    font-size: 30rpx;
 }
 
 .collect-container {

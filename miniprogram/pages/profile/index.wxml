@@ -26,12 +26,15 @@
   </view>
   <view class="collect-container">
     <view class="title">收藏夹</view>
+    <!-- 未授权 什么都没有 -->
     <view wx:if="{{!authorized}}"></view>
-    <view class="empty-container" wx:elif="{{collections.length === 0}}">
+    <!-- 已经授权  收藏夹为空 -->
+    <view class="empty-container" wx:elif="{{collection.length === 0}}">
       <image src="/images/empty.png" />
     </view>
+    <!-- 已经授权 收藏夹不为空 -->
     <view class="list-container" wx:else>
-      <block wx:for="{{collections}}" wx:key="id">
+      <block wx:for="{{collection}}" wx:key="id">
         <v-collection infor="{{item}}" />
       </block>
       <block wx:if="{{isMore}}">

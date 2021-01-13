@@ -20,11 +20,12 @@ module.exports = Behavior({
         LoginSuccess() {
             // 收起登录框
             this.setData({
-                    modalShow: false,
-                    isLoadData: true
-                })
-                // 创建收藏表
-                // this.buildCollect()
+                modalShow: false,
+                isLoadData: true
+            })
+
+            // 创建收藏表
+            // this.buildCollect()
         },
         /**
          * 授权失败

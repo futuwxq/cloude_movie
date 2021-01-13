@@ -28,24 +28,12 @@ Page({
         this._getOneMovie()
     },
     onShow() {
-        // console.log(options)
-        // if (app.globalData.collectChange) {
-        // console.log('11')
-
-        // wx.showLoading({
-        //     title: '加载中',
-        // })
         this._getOneMovie()
-            // app.globalData.collectChange = false
-
-        // }
-
     },
     /**
      * 上传用户喜欢状态和数量
      */
     onPostLike(e) {
-        console.log('click');
         const { like, count } = e.detail
         const id = this.data.moviedetail.id
             // 上传数据 like的数量
